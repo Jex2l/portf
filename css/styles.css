@@ -355,7 +355,7 @@
 
 
 .dracula-heading {
-background: linear-gradient(to right, #ff79c6, #bd93f9);
+/*background: linear-gradient(to right, #ff79c6, #bd93f9);*/
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 }
@@ -739,7 +739,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   /*text-align: var(--bs-body-text-align);*/
-  background-color: var(--bs-body-bg);
+  background-color: black;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
