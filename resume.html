@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Jeel Patel Resume" />
+    <meta name="author" content="Jeel Patel" />
+    <title>Jeel Patel – Resume</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Fonts & Bootstrap -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- Custom Styles -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Space Mono', monospace;
+        background-color: #141010;
+        color: #ffffff;
+        padding-top: 80px;
+      }
+
+      .navbar {
+        background-color: #1e1e1e;
+      }
+
+      .navbar .nav-link {
+        color: #ffffff;
+      }
+
+      .nav-link.active {
+        color: #ff79c6;
+        font-weight: bold;
+      }
+
+      .pill-glass-btn {
+        font-size: 1.0rem;
+        font-weight: 400;
+        padding: 0.4rem 1.5rem;
+        border-radius: 3rem;
+        color: #ffffff;
+        background: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(18px) saturate(160%);
+        -webkit-backdrop-filter: blur(18px) saturate(160%);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: inset 0 0 1px rgba(255, 255, 255, 0.2), 0 6px 20px rgba(0, 0, 0, 0.4);
+        text-decoration: none;
+        display: inline-block;
+        text-align: center;
+        margin: 0.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .pill-glass-btn:hover {
+        transform: scale(1.05);
+        background: rgba(255, 255, 255, 0.18);
+        color: #ffffff;
+        box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.3), 0 8px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .section-card {
+        background-color: #1e1e1e;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 0 0.5px rgba(255, 255, 255, 0.2), 0 8px 30px rgba(0, 0, 0, 0.5);
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .section-card h2 {
+        color: #ff79c6;
+      }
+
+      .section-card ul li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer {
+        background-color: #1e1e1e;
+        color: #aaa;
+      }
+    </style>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+      <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
+          <div class="container-fluid d-flex justify-content-between align-items-center">
+            <!-- Brand -->
+            <a class="navbar-brand text-white fw-bold px-3" href="#top" style="font-size: 1.2rem">Jeel Patel</a>
+
+            <!-- Hamburger (only shows under lg) -->
+            <button id="hamburger"
+                    class="navbar-toggler border-0 px-3"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu"
+                    aria-controls="mobileMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+
+          <!-- this collapse is your desktop + mobile menu -->
+          <!-- removed the `mt-2` here so on desktop it sits on the same line as the brand -->
+          <div class="collapse navbar-collapse justify-content-center" id="mobileMenu">
+            <ul class="navbar-nav text-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link active" href="resume.html">Resume</a></li>
+              <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+
+      <!-- Resume Sections -->
+      <section class="container px-5 mb-5">
+        <div class="text-center mb-5">
+          <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Resume</span></h1>
+        </div>
+        <div class="text-center mb-4">
+        <a href="assets/J_SD.pdf" download class="pill-glass-btn position-fixed top-0 end-0 m-4" style="z-index: 999;">
+          <i class="bi bi-download me-1"></i>PDF
+        </a>
+        </div>
+
+        <div class="section-card">
+          <h2 class="mb-4">Education</h2>
+
+          <div class="edu-entry mb-4">
+            <div class="edu-header">
+              <h5 class="text-white mb-1">New York University</h5>
+              <span class="edu-duration">2024 – 2026</span>
+            </div>
+            <p class="edu-subtitle text-muted mb-1">Master’s in Computer Engineering</p>
+            <p class="edu-detail text-muted">CGPA: <span class="badge-glow">3.667 / 4.0</span></p>
+            <p class="edu-courses mb-0">Courses: <span class="badge-glow">Machine Learning</span>, <span class="badge-glow">Deep Learning</span>, <span class="badge-glow">Machine Learning Operations</span>, <span class="badge-glow">Big Data</span>, <span class="badge-glow">Data Visualization</span></p>
+          </div>
+
+          <div class="edu-entry">
+            <div class="edu-header">
+              <h5 class="text-white mb-1">Symbiosis International University</h5>
+              <span class="edu-duration">2020 – 2024</span>
+            </div>
+            <p class="edu-subtitle text-muted mb-1">Bachelor’s in Information Technology</p>
+            <p class="edu-detail text-muted">CGPA: <span class="badge-glow">7.521 / 10.0</span></p>
+            <p class="edu-courses mb-0">Courses: <span class="badge-glow">Data Structures</span>, <span class="badge-glow">Data Science</span>, <span class="badge-glow">Operating Systems</span>, <span class="badge-glow">Computer Networks</span>, <span class="badge-glow">Distributed Systems</span></p>
+          </div>
+        </div>
+
+        <div class="section-card">
+          <h2 class="mb-4">Experience</h2>
+
+          <div class="timeline">
+
+            <!-- 5Point Solutions -->
+            <div class="timeline-item mb-4">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <button class="timeline-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#exp5point" aria-expanded="false" aria-controls="exp5point">
+                  <span class="text-white fw-bold">5Point Solutions Pvt. Ltd.</span>
+                  <small class="text-muted d-block">Vadodara, GJ | Internship | Jan 2024 – May 2024</small>
+                  <span class="toggle-label badge-glow mt-1 d-inline-block">Click to expand ↓</span>
+                </button>
+                <div id="exp5point" class="collapse mt-3">
+                  <ul class="exp-points">
+                    <li>Architected <span class="badge-glow">predictive models</span> using <span class="badge-glow">Python</span>, <span class="badge-glow">Scikit-learn</span>, <span class="badge-glow">XGBoost</span> to reduce churn by 18%.</li>
+                    <li>Built <span class="badge-glow">ETL pipelines</span> for 10M+ records and optimized <span class="badge-glow">SQL queries</span>, improving dashboard load time by 60%.</li>
+                    <li>Conducted <span class="badge-glow">A/B testing</span> on marketing strategies, boosting conversions by 12%.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Worknex -->
+            <div class="timeline-item mb-4">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <button class="timeline-toggle collapsed" data-bs-toggle="collapse" data-bs-target="#expworknex" aria-expanded="false" aria-controls="expworknex">
+                  <span class="text-white fw-bold">Worknex Pvt. Ltd.</span>
+                  <small class="text-muted d-block">Pune, MH | Internship | May 2023 – July 2023</small>
+                  <span class="toggle-label badge-glow mt-1 d-inline-block">Click to expand ↓</span>
+                </button>
+                <div id="expworknex" class="collapse mt-3">
+                  <ul class="exp-points">
+                    <li>Analyzed 15,000+ records using <span class="badge-glow">Pandas</span>, <span class="badge-glow">NumPy</span>, <span class="badge-glow">SQL</span> and visualized insights in <span class="badge-glow">Tableau</span>.</li>
+                    <li>Built scalable pipelines with <span class="badge-glow">Apache Spark</span> & <span class="badge-glow">Airflow</span>, reducing processing time by 35%.</li>
+                    <li>Deployed ML models using <span class="badge-glow">Scikit-learn</span>, <span class="badge-glow">TensorFlow</span> to predict engagement, improving targeting by 22%.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+
+
+
+      <div class="section-card">
+        <h2 class="mb-4">Skills</h2>
+
+        <!-- Language Skills -->
+        <div class="skill-category mb-3">
+          <h5 class="text-white mb-2">Languages</h5>
+          <div class="skill-badge-container">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">JavaScript</span>
+            <span class="skill-badge">C++</span>
+            <span class="skill-badge">PHP</span>
+            <span class="skill-badge">R</span>
+          </div>
+        </div>
+
+        <!-- Frameworks -->
+        <div class="skill-category mb-3">
+          <h5 class="text-white mb-2">Frameworks & Libraries</h5>
+          <div class="skill-badge-container">
+            <span class="skill-badge">Flask</span>
+            <span class="skill-badge">React</span>
+            <span class="skill-badge">TensorFlow</span>
+            <span class="skill-badge">Node.js</span>
+          </div>
+        </div>
+
+        <!-- Data/Cloud -->
+        <div class="skill-category mb-3">
+          <h5 class="text-white mb-2">Data Engineering & Cloud</h5>
+          <div class="skill-badge-container">
+            <span class="skill-badge">MongoDB</span>
+            <span class="skill-badge">SQL</span>
+            <span class="skill-badge">Airflow</span>
+            <span class="skill-badge">AWS</span>
+            <span class="skill-badge">Azure</span>
+          </div>
+        </div>
+
+        <!-- Visualization -->
+        <div class="skill-category">
+          <h5 class="text-white mb-2">Visualization</h5>
+          <div class="skill-badge-container">
+            <span class="skill-badge">Power BI</span>
+            <span class="skill-badge">Tableau</span>
+            <span class="skill-badge">Seaborn</span>
+          </div>
+        </div>
+      </div>
+
+        <div class="section-card">
+          <h2>Activity</h2>
+
+          <div class="row">
+            <!-- GitHub Section -->
+            <div class="col-md-6 mb-4">
+              <p><strong>GitHub Stats</strong></p>
+              <img src="https://github-readme-streak-stats.herokuapp.com/?user=Jex2l&theme=dracula" class="img-fluid mb-3" alt="GitHub Streak">
+              <img src="https://github-readme-stats.vercel.app/api?username=Jex2l&show_icons=true&theme=dracula" class="img-fluid mb-3" alt="GitHub Stats">
+              <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Jex2l&layout=compact&theme=dracula" class="img-fluid" alt="Languages Used">
+            </div>
+
+            <!-- LeetCode Section -->
+            <div class="col-md-6 mb-4">
+              <p><strong>LeetCode Profile</strong></p>
+              <img src="https://leetcard.jacoblin.cool/Jeelp31?ext=activity" class="img-fluid mb-3" alt="LeetCode Stats">
+              <a href="https://leetcode.com/u/Jeelp31/" class="pill-glass-btn" target="_blank">View My LeetCode</a>
+            </div>
+          </div>
+        </div>
+        <div class="section-card">
+          <h2 class="mb-4">Recommendations</h2>
+          <div class="recommendation-box mb-4">
+            <p class="quote-text">“Jeel was among the most effective, proactive, and collaborative students in my Big Data class. His problem-solving mindset and affable personality made him a joy to teach.”</p>
+            <div class="quote-footer">
+              <div class="quote-author">Prof. Amit Patel</div>
+              <div class="quote-role">Adjunct Professor, NYU Tandon School of Engineering</div>
+            </div>
+          </div>
+          <div class="recommendation-box mb-4">
+            <p class="quote-text">“Jeel’s ability to solve problems and his persistence in learning set him apart as a standout student in Data Mining. His curiosity and ability to communicate ideas clearly were exceptional.”</p>
+            <div class="quote-footer">
+              <div class="quote-author">Dr. Deepali Vora</div>
+              <div class="quote-role">HOD, Symbiosis Institute of Technology</div>
+            </div>
+          </div>
+          <div class="recommendation-box mb-4">
+            <p class="quote-text">“Jeel's curiosity, intellect, and collaborative mindset made him stand out in both Theory of Computation and Cyber Security modules. His passion for learning is truly inspiring.”</p>
+            <div class="quote-footer">
+              <div class="quote-author">Dr. Harshal Aravind Patil</div>
+              <div class="quote-role">Associate Professor, Symbiosis Institute of Technology</div>
+            </div>
+          </div>
+
+          <div class="recommendation-box">
+            <p class="quote-text">“Jeel exhibited a remarkable dedication to academic excellence and demonstrated a deep understanding of DBMS and programming paradigms through consistently high-quality work.”</p>
+            <div class="quote-footer">
+              <div class="quote-author">Dr. Pooja Bagane</div>
+              <div class="quote-role">Assistant Professor, Symbiosis Institute of Technology</div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+      </section>
+    </main>
+
+        <!-- Footer-->
+        <footer class="footer-dracula py-5 mt-auto">
+          <div class="container px-5">
+            <div class="row gy-4">
+
+              <!-- Bio / Identity -->
+              <div class="col-12 col-lg-4">
+                <h5 class="fw-bold mb-2 text-white">Jex2L</h5>
+                <p class="small text-muted mb-2">
+                  👋 Hey, I’m Jeel — ML enthusiast, code crafter, and relentless problem-solver. Glad you stopped by!
+                </p>
+                <p class="small text-muted mb-0">© Jeel Patel</p>
+              </div>
+
+              <!-- Navigation Links -->
+              <div class="col-12 col-lg-8">
+                <div class="row text-center text-lg-start">
+                  <!-- General -->
+                  <div class="col-4">
+                    <h6 class="fw-bold text-white mb-3">General</h6>
+                    <ul class="list-unstyled">
+                      <li><a href="index.html" class="footer-link">Home</a></li>
+                      <li><a href="projects.html" class="footer-link">Projects</a></li>
+                        <li><a href="contact.html" class="footer-link">Contact</a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Specifics -->
+                  <div class="col-4">
+                    <h6 class="fw-bold text-white mb-3">Specifics</h6>
+                    <ul class="list-unstyled">
+                      <li><a href="bucket-list.html" class="footer-link">Bucket List</a></li>
+                      <li><a href="toolbox.html" class="footer-link">Toolbox</a></li>
+                    </ul>
+                  </div>
+
+                  <!-- More + Icons -->
+                  <div class="col-4">
+                    <div class="d-flex justify-content-center justify-content-lg-start gap-3 mt-3">
+                      <a href="https://linkedin.com/in/jeel3105" class="footer-link" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-linkedin"></i>
+                      </a>
+                      <a href="https://github.com/Jex2l" class="footer-link" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-github"></i>
+                      </a>
+                      <a href="https://x.com/pateljeel3527" class="footer-link" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      document.querySelectorAll('.timeline-toggle').forEach(button => {
+        const targetId = button.getAttribute('data-bs-target');
+        const collapseEl = document.querySelector(targetId);
+        const label = button.querySelector('.toggle-label');
+
+        if (collapseEl) {
+          collapseEl.addEventListener('show.bs.collapse', () => {
+            label.textContent = 'Click to collapse ↑';
+          });
+
+          collapseEl.addEventListener('hide.bs.collapse', () => {
+            label.textContent = 'Click to expand ↓';
+          });
+        }
+      });
+    </script>
+
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

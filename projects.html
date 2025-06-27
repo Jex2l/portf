@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Jeel Patel Projects" />
+    <meta name="author" content="Jeel Patel" />
+    <title>Jeel Patel – Projects</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Fonts & Bootstrap -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Custom Styles -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Space Mono', monospace;
+      }
+
+    .pill-glass-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      text-decoration: none;
+      pointer-events: auto;
+    }
+
+    .pill-glass-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      color: black;
+      text-decoration: none;
+    }
+
+    body {
+      background-color: black;
+      color: white;
+      padding: 2rem;
+    }
+
+      /* Card Styling */
+      .card {
+        background-color: #1e1e1e;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 0 0.5px rgba(255, 255, 255, 0.2), 0 8px 30px rgba(0, 0, 0, 0.5);
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+
+
+      .card:hover {
+        transform: scale(1.02);
+      }
+
+      .card:hover::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        border-radius: inherit;
+        z-index: 1;
+      }
+
+      .card-body h2 {
+        color: #ff79c6;
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+
+      .card-body p {
+        color: #f8f8f2;
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      .btn-primary {
+        background-color: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        font-size: 0.85rem;
+        font-family: 'Space Mono', monospace;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: rgba(255, 255, 255, 0.18);
+        transform: scale(1.05);
+      }
+      .custom-project-wrapper {
+        max-width: 1150px; /* Shrink width - adjust to 840px, 720px, etc. if needed */
+        width: 100%;
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+
+      @media (max-width: 768px) {
+        .project-card > .card-body > .d-flex {
+          padding: 1rem !important;
+          flex-direction: column;
+          align-items: center;
+        }
+        .project-card .p-3 {
+          padding: 0.5rem !important;
+        }
+      }
+
+    </style>
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+      <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
+          <div class="container-fluid d-flex justify-content-between align-items-center">
+            <!-- Brand -->
+            <a class="navbar-brand text-white fw-bold px-3" href="#top" style="font-size: 1.2rem">Jeel Patel</a>
+
+            <!-- Hamburger (only shows under lg) -->
+            <button id="hamburger"
+                    class="navbar-toggler border-0 px-3"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu"
+                    aria-controls="mobileMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+
+          <!-- this collapse is your desktop + mobile menu -->
+          <!-- removed the `mt-2` here so on desktop it sits on the same line as the brand -->
+          <div class="collapse navbar-collapse justify-content-center" id="mobileMenu">
+            <ul class="navbar-nav text-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+              <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+
+      <!-- Projects Section -->
+    <section class="py-5">
+      <div class="text-center mb-4">
+        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projects</span></h1>
+      </div>
+      <!-- Filter Buttons -->
+      <div class="text-center mb-4">
+        <button class="pill-glass-btn filter-btn" data-filter="all">All</button>
+        <button class="pill-glass-btn filter-btn" data-filter="ml">ML</button>
+        <button class="pill-glass-btn filter-btn" data-filter="web">Web</button>
+        <button class="pill-glass-btn filter-btn" data-filter="fullstack">Full Stack</button>
+        <button class="pill-glass-btn filter-btn" data-filter="nlp">NLP</button>
+      </div>
+
+      <!-- Projects Section with Updated Cards -->
+      <div class="row justify-content-center" id="project-container">
+        <div class="custom-project-wrapper mx-auto">
+
+
+       <!-- NYC Taxi Demand Prediction -->
+        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 project-card" data-type="ml data">
+          <div class="card-body p-0">
+            <div class="d-flex align-items-center flex-column flex-md-row p-4">
+              <div class="p-3">
+                <h2 class="fw-bolder">NYC Taxi Demand Prediction</h2>
+                <p>Forecasted taxi ride demand using weather, event, and flight data.</p>
+                <ul class="small">
+                  <li>Dockerized pipeline &amp; deployed with MLflow on Chameleon Cloud</li>
+                  <li>Improved prediction accuracy by 28%</li>
+                  <li>Reduced retraining time by 40% using Airflow orchestration</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="badge bg-secondary">Python</span>
+                  <span class="badge bg-info">XGBoost</span>
+                  <span class="badge bg-success">Airflow</span>
+                  <span class="badge bg-dark">Docker</span>
+                  <span class="badge bg-warning text-dark">MLflow</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NYC Crime Risk and Route Prediction -->
+        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 project-card" data-type="ml web fullstack">
+          <div class="card-body p-0">
+            <div class="d-flex align-items-center flex-column flex-md-row p-4">
+              <div class="p-3">
+                <h2 class="fw-bolder">NYC Crime Risk and Route Prediction</h2>
+                <p>Machine-learning powered crime-risk forecasting with real-time routing.</p>
+                <ul class="small">
+                  <li>95% accuracy across 300+ neighborhoods</li>
+                  <li>Reduced route risk exposure by 25%</li>
+                  <li>Processed 500 000+ crime records</li>
+                  <li>40% reduction in API response time</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="badge bg-secondary">Python</span>
+                  <span class="badge bg-info">Streamlit</span>
+                  <span class="badge bg-success">Flask</span>
+                  <span class="badge bg-dark">Scikit-learn</span>
+                  <span class="badge bg-warning text-dark">JavaScript</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Optical Character Recognition -->
+        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 project-card" data-type="ml web cv">
+          <div class="card-body p-0">
+            <div class="d-flex align-items-center flex-column flex-md-row p-4">
+              <div class="p-3">
+                <h2 class="fw-bolder">Optical Character Recognition App</h2>
+                <p>OCR system using OpenCV and Tesseract for high-accuracy text extraction.</p>
+                <ul class="small">
+                  <li>95%+ recognition accuracy on 10 000+ images</li>
+                  <li>30% boost in OCR accuracy</li>
+                  <li>80% reduction in manual entry</li>
+                  <li>25% reduction in errors</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="badge bg-secondary">Python</span>
+                  <span class="badge bg-info">OpenCV</span>
+                  <span class="badge bg-success">Tesseract</span>
+                  <span class="badge bg-dark">Flask</span>
+                  <span class="badge bg-warning text-dark">HTML/CSS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Faculty Feedback System -->
+        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 project-card" data-type="fullstack web analytics">
+          <div class="card-body p-0">
+            <div class="d-flex align-items-center flex-column flex-md-row p-4">
+              <div class="p-3">
+                <h2 class="fw-bolder">Faculty Feedback System</h2>
+                <p>Automated sentiment-based review system with real-time visualization.</p>
+                <ul class="small">
+                  <li>500+ evaluations automated per semester</li>
+                  <li>50% faster faculty review cycle</li>
+                  <li>30% improvement in UI experience</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="badge bg-secondary">Python</span>
+                  <span class="badge bg-info">Power BI</span>
+                  <span class="badge bg-success">Node.js</span>
+                  <span class="badge bg-dark">SQL</span>
+                  <span class="badge bg-warning text-dark">HTML/CSS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SYMBI-MART E-commerce -->
+        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 project-card" data-type="web ai fullstack">
+          <div class="card-body p-0">
+            <div class="d-flex align-items-center flex-column flex-md-row p-4">
+              <div class="p-3">
+                <h2 class="fw-bolder">SYMBI-MART E-commerce Website</h2>
+                <p>Unified on-campus stores with AI recommendations and improved UX.</p>
+                <ul class="small">
+                  <li>Boosted order volume by 50%</li>
+                  <li>Integrated RoBERTa for smarter search and listings</li>
+                  <li>Optimized inventory management for 3 stores</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="badge bg-secondary">Node.js</span>
+                  <span class="badge bg-info">NCF</span>
+                  <span class="badge bg-success">RoBERTa</span>
+                  <span class="badge bg-dark">JavaScript</span>
+                  <span class="badge bg-warning text-dark">HTML/CSS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Document Classification & Extraction -->
+        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 project-card" data-type="ml nlp">
+          <div class="card-body p-0">
+            <div class="d-flex align-items-center flex-column flex-md-row p-4">
+              <div class="p-3">
+                <h2 class="fw-bolder">Document Classification &amp; Extraction</h2>
+                <p>Automated NLP pipeline for document sorting and key-info extraction.</p>
+                <ul class="small">
+                  <li>92% classification accuracy on 50 000+ documents</li>
+                  <li>40% improvement in classification precision</li>
+                  <li>60% faster document retrieval</li>
+                  <li>75% drop in manual overhead</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="badge bg-secondary">Python</span>
+                  <span class="badge bg-info">TensorFlow</span>
+                  <span class="badge bg-success">BERT</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+
+      <!-- JavaScript for Filters -->
+      <script>
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const type = btn.dataset.filter;
+            document.querySelectorAll('.project-card').forEach(card => {
+              if (type === 'all' || card.dataset.type.includes(type)) {
+                card.style.display = 'block';
+              } else {
+                card.style.display = 'none';
+              }
+            });
+          });
+        });
+      </script>
+
+
+      </section>
+
+      <!-- Call to Action -->
+      <section class="py-5 bg-gradient-primary-to-secondary text-white">
+        <div class="container px-5 my-5">
+          <div class="text-center">
+            <h2 class="display-4 fw-bolder mb-4">Want to collaborate?</h2>
+            <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Get in Touch</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer-->
+    <footer class="footer-dracula py-5 mt-auto">
+      <div class="container px-5">
+        <div class="row gy-4">
+
+          <!-- Bio / Identity -->
+          <div class="col-12 col-lg-4">
+            <h5 class="fw-bold mb-2 text-white">Jex2L</h5>
+            <p class="small text-muted mb-2">
+              👋 Hey, I’m Jeel — ML enthusiast, code crafter, and relentless problem-solver. Glad you stopped by!
+            </p>
+            <p class="small text-muted mb-0">© Jeel Patel</p>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="col-12 col-lg-8">
+            <div class="row text-center text-lg-start">
+              <!-- General -->
+              <div class="col-4">
+                <h6 class="fw-bold text-white mb-3">General</h6>
+                <ul class="list-unstyled">
+                  <li><a href="index.html" class="footer-link">Home</a></li>
+                  <li><a href="resume.html" class="footer-link">Resume</a></li>
+                    <li><a href="contact.html" class="footer-link">Contact</a></li>
+                </ul>
+              </div>
+
+              <!-- Specifics -->
+              <div class="col-4">
+                <h6 class="fw-bold text-white mb-3">Specifics</h6>
+                <ul class="list-unstyled">
+                  <li><a href="bucket-list.html" class="footer-link">Bucket List</a></li>
+                  <li><a href="toolbox.html" class="footer-link">Toolbox</a></li>
+                </ul>
+              </div>
+
+              <!-- More + Icons -->
+                  <div class="col-4">
+                    <div class="d-flex justify-content-center justify-content-lg-start gap-3 mt-3">
+                      <a href="https://linkedin.com/in/jeel3105" class="footer-link" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-linkedin"></i>
+                      </a>
+                      <a href="https://github.com/Jex2l" class="footer-link" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-github"></i>
+                      </a>
+                      <a href="https://x.com/pateljeel3527" class="footer-link" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </div>
+                  </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

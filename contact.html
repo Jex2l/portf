@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Contact Jeel Patel" />
+    <meta name="author" content="Jeel Patel" />
+    <title>Jeel Patel – Contact</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+
+    <!-- Fonts & Bootstrap -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Custom Styles -->
+    <link href="css/styles.css" rel="stylesheet" />
+    <style>
+      body {
+        font-family: 'Space Mono', monospace;
+        background-color: #141010;
+        color: #ffffff;
+        padding-top: 80px;
+      }
+
+      .navbar {
+        background-color: #1e1e1e;
+      }
+
+      .navbar .nav-link {
+        color: #ffffff;
+      }
+
+      .nav-link.active {
+        color: #ff79c6;
+        font-weight: bold;
+      }
+
+      section {
+        background-color: #1e1e1e;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: inset 0 0 0.5px rgba(255, 255, 255, 0.2), 0 8px 30px rgba(0, 0, 0, 0.5);
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      h1 {
+        color: #ff79c6;
+      }
+
+      .form-control {
+        background-color: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+      }
+
+      .form-control:focus {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: #ffffff;
+        border-color: #ff79c6;
+        box-shadow: 0 0 0 0.2rem rgba(255, 121, 198, 0.25);
+      }
+
+      .form-label,
+      .form-floating > label {
+        color: #f8f8f2;
+      }
+
+      .btn-primary {
+        background-color: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+        font-size: 0.85rem;
+        font-family: 'Space Mono', monospace;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: rgba(255, 255, 255, 0.18);
+        transform: scale(1.05);
+      }
+
+      .footer {
+        background-color: #1e1e1e;
+        color: #aaa;
+      }
+
+
+      .location-note {
+        font-size: 0.9rem;
+        color: #bbbbbb;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+
+      .form-alert {
+        text-align: center;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+      }
+
+      #submitButton:disabled .spinner-border {
+        display: inline-block;
+      }
+
+      .spinner-border {
+        display: none;
+        width: 1rem;
+        height: 1rem;
+        vertical-align: middle;
+        margin-left: 0.5rem;
+        border-width: 0.15em;
+      }
+
+
+    </style>
+
+  </head>
+  <body class="d-flex flex-column">
+    <main class="flex-shrink-0">
+      <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
+          <div class="container-fluid d-flex justify-content-between align-items-center">
+            <!-- Brand -->
+            <a class="navbar-brand text-white fw-bold px-3" href="#top" style="font-size: 1.2rem">Jeel Patel</a>
+
+            <!-- Hamburger (only shows under lg) -->
+            <button id="hamburger"
+                    class="navbar-toggler border-0 px-3"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu"
+                    aria-controls="mobileMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
+
+          <!-- this collapse is your desktop + mobile menu -->
+          <!-- removed the `mt-2` here so on desktop it sits on the same line as the brand -->
+          <div class="collapse navbar-collapse justify-content-center" id="mobileMenu">
+            <ul class="navbar-nav text-center">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
+              <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+              <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </nav>
+
+      <div class="text-center mb-4">
+        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Contact</span></h1>
+      </div>
+      <!-- Contact Section -->
+      <section class="py-5 container px-5">
+
+      <!-- Replace your form inside the <section> tag with this -->
+      <div class="text-center mb-5">
+        <h1 class="fw-bolder">Get in Touch</h1>
+        <p class="lead text-light mb-0">I’d love to hear about your next project.</p>
+        <div class="location-note">📍Based in NYC • I usually reply within 24 hours!</div>
+      </div>
+
+      <div class="row gx-5 justify-content-center">
+        <div class="col-lg-8 col-xl-6">
+          <form id="contactForm" action="https://formspree.io/f/xwpbwypj" method="POST">
+            <!-- Subject Line (optional but recommended) -->
+            <input type="hidden" name="_subject" value="New Contact from Portfolio Site" />
+
+            <!-- Redirect on Success (optional) -->
+            <!-- <input type="hidden" name="_next" value="https://yourwebsite.com/thanks.html" /> -->
+
+            <div class="form-floating mb-3">
+              <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..." required />
+              <label for="name">Full name</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input class="form-control" id="email" name="_replyto" type="email" placeholder="name@example.com" required />
+              <label for="email">Email address</label>
+            </div>
+
+            <div class="form-floating mb-3">
+              <textarea class="form-control" id="message" name="message" placeholder="Enter your message here..." style="height: 10rem" required></textarea>
+              <label for="message">Message</label>
+            </div>
+
+            <div class="d-grid">
+              <button class="btn btn-primary btn-lg" id="submitButton" type="submit">
+                Submit <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+              </button>
+            </div>
+
+            <div id="formMessage" class="form-alert text-light mt-3"></div>
+          </form>
+        </div>
+      </div>
+
+
+      </section>
+    </main>
+
+        <!-- Footer-->
+        <footer class="footer-dracula py-5 mt-auto">
+          <div class="container px-5">
+            <div class="row gy-4">
+
+              <!-- Bio / Identity -->
+              <div class="col-12 col-lg-4">
+                <h5 class="fw-bold mb-2 text-white">Jex2L</h5>
+                <p class="small text-muted mb-2">
+                  👋 Hey, I’m Jeel — ML enthusiast, code crafter, and relentless problem-solver. Glad you stopped by!
+                </p>
+                <p class="small text-muted mb-0">© Jeel Patel</p>
+              </div>
+
+              <!-- Navigation Links -->
+              <div class="col-12 col-lg-8">
+                <div class="row text-center text-lg-start">
+                  <!-- General -->
+                  <div class="col-4">
+                    <h6 class="fw-bold text-white mb-3">General</h6>
+                    <ul class="list-unstyled">
+                      <li><a href="index.html" class="footer-link">Home</a></li>
+                      <li><a href="resume.html" class="footer-link">Resume</a></li>
+                      <li><a href="projects.html" class="footer-link">Projects</a></li>
+                    </ul>
+                  </div>
+
+                  <!-- Specifics -->
+                  <div class="col-4">
+                    <h6 class="fw-bold text-white mb-3">Specifics</h6>
+                    <ul class="list-unstyled">
+                      <li><a href="bucket-list.html" class="footer-link">Bucket List</a></li>
+                      <li><a href="toolbox.html" class="footer-link">Toolbox</a></li>
+                    </ul>
+                  </div>
+
+                  <!-- More + Icons -->
+                  <div class="col-4">
+                    <div class="d-flex justify-content-center justify-content-lg-start gap-3 mt-3">
+                      <a href="https://linkedin.com/in/jeel3105" class="footer-link" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-linkedin"></i>
+                      </a>
+                      <a href="https://github.com/Jex2l" class="footer-link" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-github"></i>
+                      </a>
+                      <a href="https://x.com/pateljeel3527" class="footer-link" target="_blank" rel="noopener noreferrer">
+                        <i class="bi bi-twitter"></i>
+                      </a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+      <!-- Add this script before the closing </body> -->
+    <script>
+      const form = document.getElementById("contactForm");
+      const submitBtn = document.getElementById("submitButton");
+      const msgBox = document.getElementById("formMessage");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        msgBox.innerHTML = "";
+
+        const formData = new FormData(form);
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            headers: { Accept: "application/json" },
+            body: formData,
+          });
+
+          if (response.ok) {
+            msgBox.innerHTML = "✅ Message sent successfully!";
+            form.reset();
+          } else {
+            msgBox.innerHTML = "❌ Oops! Something went wrong. Please try again.";
+          }
+        } catch (error) {
+          msgBox.innerHTML = "⚠️ Network error. Please check your connection.";
+        }
+
+        submitBtn.disabled = false;
+      });
+    </script>
+
+
+  </body>
+</html>
