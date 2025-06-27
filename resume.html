@@ -120,15 +120,30 @@
         </nav>
 
       <!-- Resume Sections -->
-      <section class="container px-5 mb-5">
-        <div class="text-center mb-5">
-          <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Resume</span></h1>
-        </div>
-        <div class="text-center mb-4">
-        <a href="assets/J_SD.pdf" download class="pill-glass-btn position-fixed top-0 end-0 m-4" style="z-index: 999;">
+      <section class="container px-3 px-md-5 mb-5">
+      <!-- Resume Heading -->
+      <div class="text-center mb-5 mt-4">
+        <h1 class="display-5 fw-bolder mb-0">
+          <span class="text-gradient d-inline">Resume</span>
+        </h1>
+      </div>
+
+      <!-- Resume Download Button (Responsive Positioning) -->
+      <div class="position-fixed" style="top: 72px; right: 16px; z-index: 999;">
+        <!-- Desktop: icon + text -->
+        <a href="assets/J_SD.pdf" download
+           class="pill-glass-btn d-none d-md-inline-flex align-items-center px-3 py-2">
           <i class="bi bi-download me-1"></i>PDF
         </a>
-        </div>
+
+        <!-- Mobile: icon only -->
+        <a href="assets/J_SD.pdf" download
+           class="pill-glass-btn d-inline-flex d-md-none align-items-center px-2 py-2">
+          <i class="bi bi-download"></i>
+        </a>
+      </div>
+
+
 
         <div class="section-card">
           <h2 class="mb-4">Education</h2>
