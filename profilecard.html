@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Liquid‑Glass Profile Card</title>
+
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-pK7E3L+7gSJ+Gx2e6+G0YdM+R1FdnXUR+TTle1Zpvy+gfFYH54gzUBgYd9jRQzQVbDi4p3gBHh1zj8su7g6aOg=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+
+  <style>
+    .liquid-profile-card {
+      position: relative;
+      width: 360px;
+      height: 600px;
+      border-radius: 32px;
+      overflow: hidden;
+
+      /* stronger glass fill */
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(40px) saturate(180%);
+      -webkit-backdrop-filter: blur(40px) saturate(180%);
+
+      /* brighter border */
+      border: 1px solid rgba(255,255,255,0.5);
+
+      /* soft outer shadow */
+      box-shadow:
+        0 8px 16px rgba(0,0,0,0.4),
+        0 0 0 1px rgba(255,255,255,0.1);
+
+      transition: transform 0.3s ease;
+    }
+    .liquid-profile-card:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+
+    /* inner glow + edge highlight */
+    .liquid-profile-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      /* subtle inner highlight and depth */
+      box-shadow:
+        inset 0 0 60px rgba(255,255,255,0.2),
+        inset 0 -20px 40px rgba(0,0,0,0.4);
+      pointer-events: none;
+      z-index: 4;
+    }
+
+    /* Profile image (full‑cover) */
+    .liquid-profile-card__img {
+      position: absolute;
+      inset: 0;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    .liquid-profile-card__overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 2;
+    }
+
+    /* floating text just above footer */
+    .liquid-profile-card__info {
+      position: absolute;
+      bottom: 96px;
+      left: 24px; right: 24px;
+      z-index: 5;
+      color: #fff;
+    }
+    .liquid-profile-card__info h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      display: inline-flex;
+      align-items: center;
+    }
+    .liquid-profile-card__info h2 .fa-check-circle {
+      margin-left: 0.5rem;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+    .liquid-profile-card__info p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.4;
+      opacity: 0.9;
+    }
+
+    /* glassy footer bar */
+    .liquid-profile-card__footer {
+      position: absolute;
+      bottom: 16px;
+      left: 16px; right: 16px;
+      padding: 1rem 1.5rem;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 5;
+      animation: liquidBlur 1.5s ease-out forwards;
+    }
+    @keyframes liquidBlur {
+      from { backdrop-filter: blur(0); }
+      to   { backdrop-filter: blur(28px); }
+    }
+
+    .liquid-profile-card__stats {
+      display: flex;
+      gap: 1.75rem;
+      color: #fff;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    .liquid-profile-card__stats i { margin-right: 0.25rem; }
+
+    .liquid-profile-card__follow-btn {
+      min-width: 110px;
+      border-radius: 2rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="liquid-profile-card">
+    <img src="assets/profile.png"
+         alt="Sophie Bennett"
+         class="liquid-profile-card__img"/>
+
+    <div class="liquid-profile-card__overlay"></div>
+
+    <!-- Floating intro -->
+    <div class="liquid-profile-card__info">
+      <h2>
+        Sophie Bennett
+        <i class="fas fa-check-circle"></i>
+      </h2>
+      <p>A Product Designer focused on intuitive user experiences.</p>
+    </div>
+
+    <!-- Glassy footer -->
+    <div class="liquid-profile-card__footer">
+      <div class="liquid-profile-card__stats">
+        <div><i class="fas fa-user"></i>312</div>
+        <div><i class="fas fa-th-large"></i>48</div>
+      </div>
+      <button class="btn btn-light liquid-profile-card__follow-btn"
+              id="followButton">
+        Follow +
+      </button>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('followButton').addEventListener('click', function(){
+      this.classList.toggle('btn-light');
+      this.classList.toggle('btn-outline-light');
+      this.classList.toggle('text-white');
+      this.textContent = this.classList.contains('btn-outline-light')
+        ? 'Following'
+        : 'Follow +';
+    });
+  </script>
+</body>
+</html>

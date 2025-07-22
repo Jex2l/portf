@@ -19,31 +19,55 @@
     <link href="css/styles.css" rel="stylesheet" />
     <style>
       body {
+        transition: opacity .4s ease;
+        opacity: 1;
+      }
+      body.page-exit {
+        opacity: 0;
+      }
+      body {
+        overflow-x: hidden;
+      }
+
+      body {
         font-family: 'Space Mono', monospace;
         background-color: black;
         color: #ffffff;
         padding-top: 80px;
       }
+        html, body {
+          /*max-width: 100%;*/
+          overflow-x: hidden;
+        }
 
-      .navbar {
-        background-color: #1e1e1e;
-      }
 
-      .navbar .nav-link {
-        color: #ffffff;
-      }
+        .section-card {
+          /* fluid responsivity between 320px and 600px wide */
+          width: clamp(320px, 90%, 850px);
+          margin: 2rem auto 4rem;       /* vertically spaced, horizontally centered */
 
-      .nav-link.active {
+          /* your existing glass styling */
+          background: rgba(255, 255, 255, 0.05);
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255,255,255,0.2);
+          box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+          border-radius: 1rem;
+          padding: 2rem;
+          margin-bottom: 6rem;
+        }
+
+        /* Tweak padding on very small screens to avoid edge‑to‑edge glass */
+        @media (max-width: 400px) {
+          .section-card {
+            padding: 1.5rem 1rem;
+            margin-bottom: 6rem;
+          }
+        }
+
+
+
+      .section-card h2 {
         color: #ff79c6;
-        font-weight: bold;
-      }
-
-      section {
-        background-color: #1e1e1e;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: inset 0 0 0.5px rgba(255, 255, 255, 0.2), 0 8px 30px rgba(0, 0, 0, 0.5);
-        border-radius: 1rem;
-        margin-bottom: 2rem;
       }
 
       h1 {
@@ -118,44 +142,53 @@
     </style>
 
   </head>
-  <body class="d-flex flex-column">
+  <body class="d-flex flex-column h-100">
     <main class="flex-shrink-0">
       <!-- Navigation -->
-                <nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
-                  <div class="container-fluid d-flex justify-content-between align-items-center">
-                    <!-- Brand -->
-                    <a class="navbar-brand text-white fw-bold px-3" href="#top" style="font-size: 1.2rem">Jeel Patel</a>
+        <nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
+          <div class="container-fluid d-flex justify-content-between align-items-center">
+            <!-- Brand -->
+            <a class="navbar-brand text-white fw-bold px-3" href="#top" style="font-size: 1.2rem">Jeel Patel</a>
 
-                    <!-- Hamburger (only shows under lg) -->
-                    <button id="hamburger"
-                            class="navbar-toggler border-0 px-3"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#mobileMenu"
-                            aria-controls="mobileMenu"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                  </div>
+            <!-- Hamburger (only shows under lg) -->
+            <button id="hamburger"
+                    class="navbar-toggler border-0 px-3"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu"
+                    aria-controls="mobileMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
 
-                  <!-- this collapse is your desktop + mobile menu -->
-                  <!-- removed the `mt-2` here so on desktop it sits on the same line as the brand -->
-                  <div class="collapse navbar-collapse justify-content-center" id="mobileMenu">
-                    <ul class="navbar-nav text-center">
-                      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                      <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                      <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                      <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
-                    </ul>
-                  </div>
-                </nav>
+          <div class="collapse navbar-collapse justify-content-center" id="mobileMenu">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="resume.html">About Me</a></li>
+              <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
+              <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+
+              <!-- More Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  More
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="moreDropdown">
+                  <li><a class="dropdown-item" href="bucket-list.html">Bucket List</a></li>
+                  <li><a class="dropdown-item" href="toolbox.html">Toolbox</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
 
       <div class="text-center mb-4">
         <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Contact</span></h1>
       </div>
       <!-- Contact Section -->
-      <section class="py-5 container px-5">
+      <section class="section-card py-5 px-5">
 
       <!-- Replace your form inside the <section> tag with this -->
       <div class="text-center mb-5">
@@ -212,7 +245,7 @@
               <div class="col-12 col-lg-4">
                 <h5 class="fw-bold mb-2 text-white">Jex2L</h5>
                 <p class="small text-muted mb-2">
-                  👋 Hey, I’m Jeel — ML enthusiast, code crafter, and relentless problem-solver. Glad you stopped by!
+                  Hey, I’m Jeel — ML enthusiast, code crafter, and relentless problem-solver. Glad you stopped by!
                 </p>
                 <p class="small text-muted mb-0">© Jeel Patel</p>
               </div>

@@ -18,30 +18,60 @@
     <!-- Custom Styles -->
     <link href="css/styles.css" rel="stylesheet" />
     <style>
+      /*html {*/
+      /*  scroll-behavior: smooth;   !* automatically animates any in-page jump *!*/
+      /*}*/
+      body {
+        transition: opacity .4s ease;
+        opacity: 1;
+      }
+      body.page-exit {
+        opacity: 0;
+      }
       body {
         font-family: 'Space Mono', monospace;
-      }
-      html, body {
-        max-width: 100%;
         overflow-x: hidden;
       }
+      html, body {
+          /*max-width: 100%;*/
+          overflow-x: hidden;
+        }
 
-    .pill-glass-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 50px;
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      text-decoration: none;
-      pointer-events: auto;
-    }
 
-    .pill-glass-btn:hover {
-      background: rgba(255, 255, 255, 0.3);
-      color: black;
-      text-decoration: none;
-    }
+      .section-card.project-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        border-radius: 1rem;
+        padding: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      /* Thumbnail container */
+      .project-image {
+        flex: 0 0 auto;
+        width: 200px;
+        margin-right: 1.5rem;
+      }
+      .project-image img {
+        width: 100%;
+        height: auto;
+        border-radius: 1rem;
+        object-fit: cover;
+      }
+
+      /* Code link pill */
+      .code-link {
+        margin-top: 1rem;
+      }
+
+      /* Highlighted filter button */
+      .pill-glass-btn.active {
+        background: rgba(255, 255, 255, 0.3);
+        color: #ff79c6;
+        border-color: #ff79c6;
+      }
 
     body {
       background-color: black;
@@ -49,8 +79,7 @@
       /*padding: 2rem;*/
     }
 
-      /* Card Styling */
-      .card {
+      .section-card {
         background-color: #1e1e1e;
         border: 1px solid rgba(255, 255, 255, 0.08);
         box-shadow: inset 0 0 0.5px rgba(255, 255, 255, 0.2), 0 8px 30px rgba(0, 0, 0, 0.5);
@@ -59,53 +88,23 @@
         margin-bottom: 2rem;
       }
 
-
-      .card:hover {
-        transform: scale(1.02);
-      }
-
-      .card:hover::before {
-        content: "";
-        position: absolute;
-        top: 0; left: 0; right: 0; bottom: 0;
-        border-radius: inherit;
-        z-index: 1;
-      }
-
-      .card-body h2 {
+      .section-card h2 {
         color: #ff79c6;
-        font-size: 1.25rem;
-        font-weight: bold;
       }
 
-      .card-body p {
-        color: #f8f8f2;
-        font-size: 0.95rem;
-        line-height: 1.5;
+      .section-card ul li {
+        margin-bottom: 0.5rem;
       }
 
-      .btn-primary {
-        background-color: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: #ffffff;
-        font-size: 0.85rem;
-        font-family: 'Space Mono', monospace;
-        transition: all 0.3s ease;
-      }
-
-      .btn-primary:hover {
-        background-color: rgba(255, 255, 255, 0.18);
-        transform: scale(1.05);
-      }
       .custom-project-wrapper {
-        max-width: 1150px; /* Shrink width - adjust to 840px, 720px, etc. if needed */
+        max-width: 90%; /* Shrink width - adjust to 840px, 720px, etc. if needed */
         width: 100%;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
       }
 
 
-      @media (max-width: 768px) {
+      @media (max-width: 408px) {
         .project-card > .card-body > .d-flex {
           padding: 1rem !important;
           flex-direction: column;
@@ -119,38 +118,62 @@
     </style>
   </head>
 
-  <body class="d-flex flex-column h-100">
+  <body class="fade-in d-flex flex-column h-100">
     <main class="flex-shrink-0">
       <!-- Navbar -->
-                <nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
-                  <div class="container-fluid d-flex justify-content-between align-items-center">
-                    <!-- Brand -->
-                    <a class="navbar-brand text-white fw-bold px-3" href="#top" style="font-size: 1.2rem">Jeel Patel</a>
+        <nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
+          <div class="container-fluid d-flex justify-content-between align-items-center">
+            <!-- Brand -->
+            <a class="navbar-brand text-white fw-bold px-3" href="#top" style="font-size: 1.2rem">Jeel Patel</a>
 
-                    <!-- Hamburger (only shows under lg) -->
-                    <button id="hamburger"
-                            class="navbar-toggler border-0 px-3"
-                            type="button"
-                            data-bs-toggle="collapse"
-                            data-bs-target="#mobileMenu"
-                            aria-controls="mobileMenu"
-                            aria-expanded="false"
-                            aria-label="Toggle navigation">
-                      <span class="navbar-toggler-icon"></span>
-                    </button>
-                  </div>
+            <!-- Hamburger (only shows under lg) -->
+            <button id="hamburger"
+                    class="navbar-toggler border-0 px-3"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu"
+                    aria-controls="mobileMenu"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          </div>
 
-                  <!-- this collapse is your desktop + mobile menu -->
-                  <!-- removed the `mt-2` here so on desktop it sits on the same line as the brand -->
-                  <div class="collapse navbar-collapse justify-content-center" id="mobileMenu">
-                    <ul class="navbar-nav text-center">
-                      <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                      <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                      <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
-                      <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                    </ul>
-                  </div>
-                </nav>
+          <div class="collapse navbar-collapse justify-content-center" id="mobileMenu">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="resume.html">About Me</a></li>
+              <li class="nav-item"><a class="nav-link active" href="projects.html">Projects</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+              <!-- More Dropdown -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  More
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="moreDropdown">
+                  <li><a class="dropdown-item" href="bucket-list.html">Bucket List</a></li>
+                  <li><a class="dropdown-item" href="toolbox.html">Toolbox</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+              <div class="position-fixed" style="top: 72px; right: 16px; z-index: 999;">
+                <!-- Desktop: icon + text -->
+                <a href="assets/J_SD.pdf" download
+                   class="pill-glass-btn d-none d-md-inline-flex align-items-center px-4 py-2">
+                  <i class="bi bi-download me-1"></i>My Resume
+                </a>
+
+                <!-- Mobile: icon only -->
+                <a href="assets/J_SD.pdf" download
+                   class="pill-glass-btn d-inline-flex d-md-none align-items-center px-3 py-2">
+                  <i class="bi bi-download"></i>
+                </a>
+              </div>
+
 
       <!-- Projects Section -->
     <section class="py-5">
@@ -172,63 +195,91 @@
 
 
        <!-- NYC Taxi Demand Prediction -->
-        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 project-card" data-type="ml data">
-          <div class="card-body p-0">
-            <div class="d-flex align-items-center flex-column flex-md-row p-4">
-              <div class="p-3">
-                <h2 class="fw-bolder">NYC Taxi Demand Prediction</h2>
-                <p>Forecasted taxi ride demand using weather, event, and flight data.</p>
-                <ul class="small">
-                  <li>Dockerized pipeline &amp; deployed with MLflow on Chameleon Cloud</li>
-                  <li>Improved prediction accuracy by 28%</li>
-                  <li>Reduced retraining time by 40% using Airflow orchestration</li>
-                </ul>
-                <div class="d-flex flex-wrap gap-2 mb-3">
-                  <span class="badge bg-secondary">Python</span>
-                  <span class="badge bg-info">XGBoost</span>
-                  <span class="badge bg-success">Airflow</span>
-                  <span class="badge bg-dark">Docker</span>
-                  <span class="badge bg-warning text-dark">MLflow</span>
-                </div>
+      <!-- NYC Taxi Demand Prediction -->
+      <div class="section-card project-card" data-type="ml data">
+        <div class="card-body p-2">
+          <div class="d-flex align-items-center flex-column flex-md-row p-4">
+            <!-- Thumbnail -->
+            <div class="project-image">
+              <img src="assets/NYC+TAXI_DEMAND.png" alt="NYC Taxi Demand Prediction">
+            </div>
+            <!-- Textual content -->
+            <div class="flex-grow-1 p-3">
+              <h2 class="fw-bolder">NYC Taxi Demand Prediction</h2>
+              <p>Forecasted taxi ride demand using weather, event, and flight data.</p>
+              <ul class="small mb-3">
+                <li>Dockerized pipeline &amp; deployed with MLflow on Chameleon Cloud</li>
+                <li>Improved prediction accuracy by 28%</li>
+                <li>Reduced retraining time by 40% using Airflow orchestration</li>
+              </ul>
+              <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge bg-secondary">Python</span>
+                <span class="badge bg-info">XGBoost</span>
+                <span class="badge bg-success">Airflow</span>
+                <span class="badge bg-dark">Docker</span>
+                <span class="badge bg-warning text-dark">MLflow</span>
               </div>
+              <!-- View Code -->
+              <a href="https://github.com/Jex2l/NYC-Taxi-Demand-Prediction-with-Weather-and-Flight-Data-Integration" class="pill-glass-btn code-link" target="_blank" rel="noopener">
+                <i class="bi bi-code-slash"></i> View Code
+              </a>
             </div>
           </div>
         </div>
+      </div>
+
 
         <!-- NYC Crime Risk and Route Prediction -->
-        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 project-card" data-type="ml web fullstack">
+        <div class="section-card project-card" data-type="ml web fullstack">
           <div class="card-body p-0">
             <div class="d-flex align-items-center flex-column flex-md-row p-4">
-              <div class="p-3">
+              <!-- Thumbnail -->
+              <div class="project-image">
+                <img src="assets/NYC_CRIME+PREDICTION.png"
+                     alt="NYC Crime Risk & Route Prediction">
+              </div>
+              <!-- Textual content -->
+              <div class="flex-grow-1 p-3">
                 <h2 class="fw-bolder">NYC Crime Risk and Route Prediction</h2>
-                <p>Machine-learning powered crime-risk forecasting with real-time routing.</p>
-                <ul class="small">
+                <p>Machine‑learning powered crime‑risk forecasting with real‑time routing.</p>
+                <ul class="small mb-3">
                   <li>95% accuracy across 300+ neighborhoods</li>
                   <li>Reduced route risk exposure by 25%</li>
-                  <li>Processed 500 000+ crime records</li>
+                  <li>Processed 500 000+ crime records</li>
                   <li>40% reduction in API response time</li>
                 </ul>
                 <div class="d-flex flex-wrap gap-2 mb-3">
                   <span class="badge bg-secondary">Python</span>
                   <span class="badge bg-info">Streamlit</span>
                   <span class="badge bg-success">Flask</span>
-                  <span class="badge bg-dark">Scikit-learn</span>
+                  <span class="badge bg-dark">Scikit‑learn</span>
                   <span class="badge bg-warning text-dark">JavaScript</span>
                 </div>
+                <!-- New “View Code” button -->
+                <a href="https://github.com/Jex2l/NYC-Crime-Risk-And-Route-Prediction"
+                   class="pill-glass-btn code-link"
+                   target="_blank" rel="noopener">
+                  <i class="bi bi-code-slash"></i> View Code
+                </a>
               </div>
             </div>
           </div>
         </div>
 
+
         <!-- Optical Character Recognition -->
-        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 project-card" data-type="ml web cv">
+        <!-- Optical Character Recognition App -->
+        <div class="section-card project-card" data-type="ml web cv">
           <div class="card-body p-0">
             <div class="d-flex align-items-center flex-column flex-md-row p-4">
-              <div class="p-3">
+              <div class="project-image">
+                <img src="assets/ocr.png" alt="Optical Character Recognition App">
+              </div>
+              <div class="flex-grow-1 p-3">
                 <h2 class="fw-bolder">Optical Character Recognition App</h2>
-                <p>OCR system using OpenCV and Tesseract for high-accuracy text extraction.</p>
-                <ul class="small">
-                  <li>95%+ recognition accuracy on 10 000+ images</li>
+                <p>OCR system using OpenCV and Tesseract for high‑accuracy text extraction.</p>
+                <ul class="small mb-3">
+                  <li>95%+ recognition accuracy on 10 000+ images</li>
                   <li>30% boost in OCR accuracy</li>
                   <li>80% reduction in manual entry</li>
                   <li>25% reduction in errors</li>
@@ -240,19 +291,27 @@
                   <span class="badge bg-dark">Flask</span>
                   <span class="badge bg-warning text-dark">HTML/CSS</span>
                 </div>
+                <a href="https://github.com/Jex2l/ocr-app" class="pill-glass-btn code-link" target="_blank" rel="noopener">
+                  <i class="bi bi-code-slash"></i> View Code
+                </a>
               </div>
             </div>
           </div>
         </div>
 
+
         <!-- Faculty Feedback System -->
-        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 project-card" data-type="fullstack web analytics">
+        <!-- Faculty Feedback System -->
+        <div class="section-card project-card" data-type="fullstack web analytics">
           <div class="card-body p-0">
             <div class="d-flex align-items-center flex-column flex-md-row p-4">
-              <div class="p-3">
+              <div class="project-image">
+                <img src="assets/Faculty.png" alt="Faculty Feedback System">
+              </div>
+              <div class="flex-grow-1 p-3">
                 <h2 class="fw-bolder">Faculty Feedback System</h2>
-                <p>Automated sentiment-based review system with real-time visualization.</p>
-                <ul class="small">
+                <p>Automated sentiment‑based review system with real‑time visualization.</p>
+                <ul class="small mb-3">
                   <li>500+ evaluations automated per semester</li>
                   <li>50% faster faculty review cycle</li>
                   <li>30% improvement in UI experience</li>
@@ -264,19 +323,26 @@
                   <span class="badge bg-dark">SQL</span>
                   <span class="badge bg-warning text-dark">HTML/CSS</span>
                 </div>
+                <a href="https://github.com/Jex2l/faculty-feedback-system" class="pill-glass-btn code-link" target="_blank" rel="noopener">
+                  <i class="bi bi-code-slash"></i> View Code
+                </a>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- SYMBI-MART E-commerce -->
-        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 project-card" data-type="web ai fullstack">
+
+        <!-- SYMBI-MART E‑commerce Website -->
+        <div class="section-card project-card" data-type="web ai fullstack">
           <div class="card-body p-0">
             <div class="d-flex align-items-center flex-column flex-md-row p-4">
-              <div class="p-3">
-                <h2 class="fw-bolder">SYMBI-MART E-commerce Website</h2>
-                <p>Unified on-campus stores with AI recommendations and improved UX.</p>
-                <ul class="small">
+              <div class="project-image">
+                <img src="assets/symbimart.png" alt="SYMBI‑MART E‑commerce Website">
+              </div>
+              <div class="flex-grow-1 p-3">
+                <h2 class="fw-bolder">SYMBI‑MART E‑commerce Website</h2>
+                <p>Unified on‑campus stores with AI recommendations and improved UX.</p>
+                <ul class="small mb-3">
                   <li>Boosted order volume by 50%</li>
                   <li>Integrated RoBERTa for smarter search and listings</li>
                   <li>Optimized inventory management for 3 stores</li>
@@ -288,20 +354,56 @@
                   <span class="badge bg-dark">JavaScript</span>
                   <span class="badge bg-warning text-dark">HTML/CSS</span>
                 </div>
+                <a href="https://github.com/Jex2l/Symbi-mart" class="pill-glass-btn code-link" target="_blank" rel="noopener">
+                  <i class="bi bi-code-slash"></i> View Code
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SYMBI-MART E‑commerce Website -->
+        <div class="section-card project-card" data-type="web ai fullstack">
+          <div class="card-body p-0">
+            <div class="d-flex align-items-center flex-column flex-md-row p-4">
+              <div class="project-image">
+                <img src="assets/netflixclone.png" alt="NETFLIX-CLONE Website">
+              </div>
+              <div class="flex-grow-1 p-3">
+                <h2 class="fw-bolder">Netflix-Inspired Streaming Platform</h2>
+                <p>Recreated the Netflix experience with responsive design, seamless navigation, and dynamic media playback.</p>
+                <ul class="small mb-3">
+                  <li>Implemented React.js and Firebase for a full-stack SPA</li>
+                  <li>Enabled user authentication with real-time content updates</li>
+                  <li>Integrated TMDB API for dynamic movie recommendations</li>
+                </ul>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                  <span class="badge bg-secondary">Node.js</span>
+                  <span class="badge bg-info">NCF</span>
+                  <span class="badge bg-dark">JavaScript</span>
+                  <span class="badge bg-warning text-dark">HTML/CSS</span>
+                </div>
+                <a href="https://github.com/Jex2l/NETFLIX-CLONE" class="pill-glass-btn code-link" target="_blank" rel="noopener">
+                  <i class="bi bi-code-slash"></i> View Code
+                </a>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Document Classification & Extraction -->
-        <div class="card overflow-hidden shadow rounded-4 border-0 mb-5 project-card" data-type="ml nlp">
+        <!-- Document Classification & Extraction -->
+        <div class="section-card project-card" data-type="ml nlp">
           <div class="card-body p-0">
             <div class="d-flex align-items-center flex-column flex-md-row p-4">
-              <div class="p-3">
+              <div class="project-image">
+                <img src="assets/documentClassification.png" alt="Document Classification & Extraction">
+              </div>
+              <div class="flex-grow-1 p-3">
                 <h2 class="fw-bolder">Document Classification &amp; Extraction</h2>
-                <p>Automated NLP pipeline for document sorting and key-info extraction.</p>
-                <ul class="small">
-                  <li>92% classification accuracy on 50 000+ documents</li>
+                <p>Automated NLP pipeline for document sorting and key‑info extraction.</p>
+                <ul class="small mb-3">
+                  <li>92% classification accuracy on 50 000+ documents</li>
                   <li>40% improvement in classification precision</li>
                   <li>60% faster document retrieval</li>
                   <li>75% drop in manual overhead</li>
@@ -311,43 +413,34 @@
                   <span class="badge bg-info">TensorFlow</span>
                   <span class="badge bg-success">BERT</span>
                 </div>
+                <a href="https://github.com/Jex2l/doc-classification-extraction" class="pill-glass-btn code-link" target="_blank" rel="noopener">
+                  <i class="bi bi-code-slash"></i> View Code
+                </a>
               </div>
             </div>
           </div>
         </div>
 
 
+
         </div>
       </div>
-
-      <!-- JavaScript for Filters -->
-      <script>
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const type = btn.dataset.filter;
-            document.querySelectorAll('.project-card').forEach(card => {
-              if (type === 'all' || card.dataset.type.includes(type)) {
-                card.style.display = 'block';
-              } else {
-                card.style.display = 'none';
-              }
-            });
-          });
-        });
-      </script>
 
 
       </section>
 
       <!-- Call to Action -->
-      <section class="py-5 bg-gradient-primary-to-secondary text-white">
-        <div class="container px-5 my-5">
-          <div class="text-center">
-            <h2 class="display-4 fw-bolder mb-4">Want to collaborate?</h2>
-            <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Get in Touch</a>
+      <section class="py-5" style="background: black;">
+        <div class="container px-5 my-5 d-flex justify-content-center">
+          <div class="glass-card text-center p-5">
+            <h2 class="display-4 fw-bolder mb-4 text-white">Have an idea worth building?</h2>
+            <p class="lead mb-4 text-light">Let’s team up, prototype, and bring it to life.</p>
+            <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="mailto:pateljeel3105@gmail.com">Pitch Me Your Idea</a>
           </div>
         </div>
       </section>
+
+
     </main>
 
     <!-- Footer-->
@@ -406,7 +499,28 @@
         </div>
       </div>
     </footer>
+    <script>
+      const filters = document.querySelectorAll('.filter-btn');
+      const cards   = document.querySelectorAll('.project-card');
 
+      filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+          // 3a) Toggle active class
+          filters.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          // 3b) Show/hide cards
+          const type = btn.dataset.filter;
+          cards.forEach(card => {
+            const match = type === 'all' || card.dataset.type.includes(type);
+            card.style.display = match ? 'block' : 'none';
+          });
+        });
+      });
+
+      // Optional: initialize “All” as active on page load
+      document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+    </script>
     <!-- Bootstrap Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/scripts.js"></script>
