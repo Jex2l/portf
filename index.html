@@ -1,416 +1,675 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <!-- Bootstrap JS Bundle -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jeel Patel — Software Engineer. ML Systems, Distributed Computing, HPC." />
+  <meta name="author" content="Jeel Patel" />
+  <title>Jeel Patel — Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+/*═══════════════════════════════════════════════════════
+  RESET & VARS
+═══════════════════════════════════════════════════════*/
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#07070a;--bg2:#0c0c11;--bg3:#111118;--bg4:#18181f;--bg5:#1f1f28;
+  --border:rgba(255,255,255,0.05);--border2:rgba(255,255,255,0.1);
+  --t1:#eeeae2;--t2:#87878f;--t3:#505058;
+  --ac:#e8a44a;--ac2:rgba(232,164,74,0.12);--ac3:rgba(232,164,74,0.25);
+  --hi:#6ba3f7;--hi2:rgba(107,163,247,0.1);
+  --gr:#5ec269;--gr2:rgba(94,194,105,0.1);
+  --fd:'Outfit',sans-serif;--fb:'DM Sans',sans-serif;--fm:'JetBrains Mono',monospace;
+  --navH:62px;--ease:cubic-bezier(0.16,1,0.3,1);--spring:cubic-bezier(0.34,1.56,0.64,1);
+  --maxW:1140px;--dur:0.5s;
+}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--fb);background:var(--bg);color:var(--t1);line-height:1.6;overflow:hidden;height:100vh}
+a{color:var(--ac);text-decoration:none;transition:color .25s}a:hover{color:var(--t1)}
+img{max-width:100%;display:block}
+::selection{background:var(--ac);color:var(--bg)}
+.ctn{width:100%;max-width:var(--maxW);margin:0 auto;padding:0 clamp(1.2rem,4vw,2.5rem)}
 
+/* Grain */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:99999;opacity:.018;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px}
 
+/*═══════════════════════════════════════════════════════
+  NAV — fixed, survives all transitions
+═══════════════════════════════════════════════════════*/
+.nav{position:fixed;top:0;left:0;right:0;height:var(--navH);z-index:2000;background:rgba(7,7,10,.84);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);border-bottom:1px solid var(--border);display:flex;align-items:center}
+.nav-in{display:flex;justify-content:space-between;align-items:center;width:100%;max-width:var(--maxW);margin:0 auto;padding:0 clamp(1.2rem,4vw,2.5rem)}
 
-        <title>Jeel Patel</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-        <!-- Custom Google font-->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <style>
+/* ─── NEW ORIGINAL LOGO ───
+   Abstract "J" formed by 3 connected nodes + circuit trace.
+   Unique geometric monogram. */
+.logo{display:flex;align-items:center;gap:.55rem;cursor:pointer;text-decoration:none}
+.logo-icon{width:34px;height:34px;position:relative}
+.logo-icon svg{width:100%;height:100%}
+.logo-word{font-family:var(--fm);font-weight:600;font-size:.82rem;color:var(--t1);letter-spacing:.01em}
+.logo-word b{color:var(--ac);font-weight:700}
+.logo-word .dim{color:var(--t3);font-weight:400}
 
-          body {
-            transition: opacity .4s ease;
-            opacity: 1;
-          }
-          body.page-exit {
-            opacity: 0;
-          }
-          body {
-            font-family: 'Space Mono', monospace;
-            overflow-x: hidden;
-            padding-top: 100px;
-          }
-          body {
-              font-family: 'Space Mono', monospace;
-              background-color: black;
-              color: black;
-          }
-          html, body {
-          /*max-width: 100%;*/
-          overflow-x: hidden;
-        }
-          header.py-7 {
-          padding-top: 6rem;
-          padding-bottom: 6rem;
-        }
+/* Nav items */
+.nl{display:flex;gap:.2rem;list-style:none;align-items:center}
+.nl-btn{font-family:var(--fb);font-size:.8rem;font-weight:500;color:var(--t3);padding:.42rem .85rem;border-radius:8px;cursor:pointer;transition:color .2s,background .2s;border:none;background:none}
+.nl-btn:hover{color:var(--t1);background:rgba(255,255,255,.04)}
+.nl-btn.on{color:var(--ac);background:var(--ac2)}
+.nl-cta{font-family:var(--fm);font-size:.68rem;letter-spacing:.04em;padding:.48rem 1rem;border:1px solid var(--ac);color:var(--ac);border-radius:100px;cursor:pointer;background:transparent;margin-left:.4rem;transition:all .25s}
+.nl-cta:hover{background:var(--ac);color:var(--bg)}
 
-        #typewriter-placeholder {
-          visibility: hidden;
-          height: 0;
-          overflow: hidden;
-          position: absolute;
-          pointer-events: none;
-        }
+/* Mobile */
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;z-index:2001}
+.ham span{display:block;width:21px;height:2px;background:var(--t1);transition:all .3s;border-radius:2px}
+.ham.on span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.ham.on span:nth-child(2){opacity:0}
+.ham.on span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mob{display:none;position:fixed;inset:0;background:rgba(7,7,10,.97);backdrop-filter:blur(30px);z-index:1999;flex-direction:column;justify-content:center;align-items:center;gap:1.4rem}
+.mob.open{display:flex}
+.mob button{font-family:var(--fd);font-size:1.7rem;font-weight:600;color:var(--t1);background:none;border:none;cursor:pointer;transition:color .2s}
+.mob button:hover{color:var(--ac)}
+@media(max-width:768px){.nl{display:none}.ham{display:flex}}
 
-        #typewriter {
-          font-family: 'Space Mono', monospace;
-          display: inline-block;
-          min-width: 7ch; /* To reserve consistent horizontal space */
-        }
+/*═══════════════════════════════════════════════════════
+  PANEL SYSTEM — slide left/right transitions
+═══════════════════════════════════════════════════════*/
+.vp{position:fixed;top:var(--navH);left:0;right:0;bottom:0;overflow:hidden}
+.pn{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;background:var(--bg);transform:translateX(100%);opacity:0;transition:transform var(--dur) var(--ease),opacity var(--dur) var(--ease);will-change:transform,opacity;-webkit-overflow-scrolling:touch}
+.pn.on{transform:translateX(0);opacity:1;z-index:10}
+.pn.ex-l{transform:translateX(-30%);opacity:0;z-index:5}
+.pn.ex-r{transform:translateX(100%);opacity:0;z-index:5}
+.pn-c{padding-bottom:3rem}
 
-        /* Optional: ensure consistent vertical spacing */
-        .badge {
-          min-height: 2.5rem; /* Locks vertical space even with font changes */
-        }
-        </style>
-    </head>
-    <body class="d-flex flex-column h-100">
-        <main class="flex-shrink-0">
-        <nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
-          <div class="container-fluid d-flex justify-content-between align-items-center">
-            <!-- Brand -->
-            <a class="navbar-brand text-white fw-bold px-3" href="#top" style="font-size: 1.2rem">Jeel Patel</a>
+/* Reveals */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.pn.on .rv{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}.d4{transition-delay:.28s}.d5{transition-delay:.35s}.d6{transition-delay:.42s}
 
-            <!-- Hamburger (only shows under lg) -->
-            <button id="hamburger"
-                    class="navbar-toggler border-0 px-3"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#mobileMenu"
-                    aria-controls="mobileMenu"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
+/* Section helpers */
+.sl{font-family:var(--fm);font-size:.68rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ac);margin-bottom:.65rem;display:flex;align-items:center;gap:.55rem}
+.sl::before{content:'';width:1.2rem;height:1px;background:var(--ac)}
+.st{font-family:var(--fd);font-weight:700;font-size:clamp(1.7rem,3.2vw,2.6rem);line-height:1.15;margin-bottom:1.2rem}
 
-          <div class="collapse navbar-collapse justify-content-center" id="mobileMenu">
-            <ul class="navbar-nav">
-              <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="resume.html">About Me</a></li>
-              <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-              <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+/*═══════════════════════════════════════════════════════
+  HERO
+═══════════════════════════════════════════════════════*/
+.hero{min-height:calc(100vh - var(--navH));display:flex;align-items:center;position:relative;overflow:hidden;padding:clamp(2rem,5vw,3.5rem) 0}
+.hero-gl{position:absolute;border-radius:50%;filter:blur(130px);pointer-events:none}
+.hero-gl1{width:420px;height:420px;background:radial-gradient(circle,var(--ac3),transparent 70%);top:-12%;right:6%;animation:gd 14s ease-in-out infinite alternate}
+.hero-gl2{width:280px;height:280px;background:radial-gradient(circle,rgba(107,163,247,.08),transparent 70%);bottom:8%;left:-2%;animation:gd 17s ease-in-out infinite alternate-reverse}
+@keyframes gd{0%{transform:translate(0,0) scale(1)}100%{transform:translate(20px,-12px) scale(1.06)}}
 
-              <!-- More Dropdown -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  More
-                </a>
-                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="moreDropdown">
-                  <li><a class="dropdown-item" href="bucket-list.html">Bucket List</a></li>
-                  <li><a class="dropdown-item" href="toolbox.html">Toolbox</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div>
-        </nav>
+.hero-lay{position:relative;z-index:1;display:grid;grid-template-columns:1fr 310px;gap:2.5rem;align-items:center}
+.hero-ey{font-family:var(--fm);font-size:.72rem;letter-spacing:.17em;text-transform:uppercase;color:var(--ac);margin-bottom:1.1rem;display:flex;align-items:center;gap:.55rem}
+.hero-ey .pd{width:6px;height:6px;border-radius:50%;background:var(--ac);animation:pp 2s ease-in-out infinite}
+@keyframes pp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(1.4)}}
+.hero-nm{font-family:var(--fd);font-weight:800;font-size:clamp(2.6rem,6.5vw,5rem);line-height:.95;letter-spacing:-.03em;margin-bottom:1.1rem}
+.hero-nm .ac{color:var(--ac)}
+.hero-tl{font-size:clamp(.92rem,1.7vw,1.1rem);color:var(--t2);max-width:480px;margin-bottom:1.75rem;line-height:1.75}
+.hero-act{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:2.5rem}
+.bp{font-family:var(--fm);font-size:.72rem;letter-spacing:.04em;padding:.7rem 1.6rem;background:var(--ac);color:var(--bg);border:none;border-radius:100px;cursor:pointer;font-weight:600;transition:all .3s var(--spring);display:inline-flex;align-items:center;gap:.4rem}
+.bp:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--ac3);color:var(--bg)}
+.bg{font-family:var(--fm);font-size:.72rem;letter-spacing:.04em;padding:.7rem 1.6rem;background:transparent;color:var(--t1);border:1px solid var(--border2);border-radius:100px;cursor:pointer;font-weight:500;transition:all .3s;display:inline-flex;align-items:center;gap:.4rem}
+.bg:hover{border-color:var(--ac);color:var(--ac);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:2.2rem;padding-top:1.3rem;border-top:1px solid var(--border)}
+.hs-v{font-family:var(--fd);font-weight:700;font-size:1.5rem;line-height:1}
+.hs-l{font-size:.7rem;color:var(--t3);margin-top:.15rem}
 
+/* Photo card */
+.pc{width:100%;max-width:300px;background:var(--bg3);border:1px solid var(--border);border-radius:18px;overflow:hidden;position:relative;transition:transform .5s var(--ease),box-shadow .5s}
+.pc:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.4),0 0 50px var(--ac3)}
+.pc::before{content:'';position:absolute;top:-35px;right:-35px;width:100px;height:100px;border-radius:50%;background:var(--ac3);filter:blur(45px);pointer-events:none;z-index:1}
+.pc-img{width:100%;aspect-ratio:3/3.4;object-fit:cover;object-position:center top;background:linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)}
+.pc-body{padding:1.1rem 1.3rem}
+.pc-name{font-family:var(--fd);font-weight:700;font-size:1rem;margin-bottom:.1rem}
+.pc-role{font-size:.78rem;color:var(--t2);margin-bottom:.5rem}
+.pc-tags{display:flex;gap:.5rem;flex-wrap:wrap}
+.pc-tag{font-family:var(--fm);font-size:.6rem;padding:.22rem .55rem;border:1px solid var(--border);border-radius:100px;color:var(--t3)}
 
-        <div class="position-fixed" style="top: 72px; right: 16px; z-index: 999;">
-          <!-- Desktop: icon + text -->
-          <a href="assets/J_SD.pdf" download
-             class="pill-glass-btn d-none d-md-inline-flex align-items-center px-4 py-2">
-            <i class="bi bi-download me-1"></i>My Resume
-          </a>
+@media(max-width:900px){
+  .hero-lay{grid-template-columns:1fr;text-align:center}
+  .hero-ey{justify-content:center}.hero-tl{margin-left:auto;margin-right:auto}
+  .hero-act{justify-content:center}.hero-stats{justify-content:center;flex-wrap:wrap;gap:1.3rem}
+  .pc{margin:0 auto;max-width:260px;order:-1}
+}
 
-          <!-- Mobile: icon only -->
-          <a href="assets/J_SD.pdf" download
-             class="pill-glass-btn d-inline-flex d-md-none align-items-center px-3 py-2">
-            <i class="bi bi-download"></i>
-          </a>
+/*═══════════════════════════════════════════════════════
+  ABOUT (in home panel)
+═══════════════════════════════════════════════════════*/
+.about-s{padding:clamp(2.5rem,5vw,5rem) 0}
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+.about-g p{color:var(--t2);margin-bottom:.9rem;font-size:.93rem}
+.ahl{color:var(--t1);font-weight:500}
+.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.ac-card{background:var(--bg3);border:1px solid var(--border);border-radius:13px;padding:1.1rem;transition:all .3s var(--ease)}
+.ac-card:hover{border-color:var(--ac);background:var(--bg4);transform:translateY(-3px)}
+.ac-icon{font-size:1.2rem;margin-bottom:.4rem}
+.ac-title{font-family:var(--fd);font-weight:600;font-size:.85rem;margin-bottom:.25rem}
+.ac-desc{font-size:.75rem;color:var(--t3);line-height:1.5}
+@media(max-width:768px){.about-g{grid-template-columns:1fr;gap:2rem}}
+@media(max-width:480px){.about-cards{grid-template-columns:1fr}}
+
+/* Skills */
+.sk-s{padding:clamp(2.5rem,5vw,4.5rem) 0;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.sk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.3rem}
+.sk-grp{background:var(--bg3);border:1px solid var(--border);border-radius:13px;padding:1.3rem;transition:border-color .3s}
+.sk-grp:hover{border-color:var(--border2)}
+.sk-gt{font-family:var(--fd);font-weight:600;font-size:.85rem;margin-bottom:.85rem;display:flex;align-items:center;gap:.45rem}
+.sk-dot{width:7px;height:7px;border-radius:3px;display:inline-block}
+.sk-tags{display:flex;flex-wrap:wrap;gap:.35rem}
+.sk-tag{font-family:var(--fm);font-size:.65rem;padding:.32rem .7rem;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:100px;color:var(--t2);transition:all .2s;cursor:default}
+.sk-tag:hover{border-color:var(--ac);color:var(--ac);background:var(--ac2)}
+
+/*═══════════════════════════════════════════════════════
+  EXPERIENCE + EDUCATION — with company/school LOGOS
+═══════════════════════════════════════════════════════*/
+.exp-s{padding:clamp(2.5rem,5vw,4.5rem) 0}
+.exp-list{display:flex;flex-direction:column;gap:.9rem;margin-top:1.3rem}
+.exp-card{display:grid;grid-template-columns:52px 130px 1fr;gap:1.2rem;padding:1.3rem;background:var(--bg3);border:1px solid var(--border);border-radius:13px;cursor:pointer;transition:all .3s var(--ease);position:relative;align-items:start}
+.exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ac);border-radius:3px 0 0 3px;opacity:0;transition:opacity .25s}
+.exp-card:hover{border-color:var(--border2);background:var(--bg4);transform:translateX(3px)}
+.exp-card:hover::before{opacity:1}
+/* Company logo container */
+.exp-logo{width:44px;height:44px;border-radius:10px;background:var(--bg4);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;overflow:hidden;flex-shrink:0}
+.exp-logo svg{width:28px;height:28px}
+.exp-date{font-family:var(--fm);font-size:.68rem;color:var(--t3);letter-spacing:.04em;padding-top:.1rem}
+.exp-role{font-family:var(--fd);font-weight:600;font-size:1rem;margin-bottom:.08rem}
+.exp-co{color:var(--ac);font-size:.82rem;font-weight:500;margin-bottom:.4rem}
+.exp-prev{font-size:.78rem;color:var(--t2);line-height:1.5}
+.exp-hint{font-family:var(--fm);font-size:.62rem;color:var(--t3);margin-top:.5rem;display:flex;align-items:center;gap:.25rem;transition:color .2s}
+.exp-card:hover .exp-hint{color:var(--ac)}
+@media(max-width:640px){.exp-card{grid-template-columns:44px 1fr;gap:.8rem}.exp-date{grid-column:1/-1}}
+
+/* Education */
+.edu-s{padding:clamp(2.5rem,5vw,4.5rem) 0;background:var(--bg2);border-top:1px solid var(--border)}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.3rem}
+.edu-card{background:var(--bg3);border:1px solid var(--border);border-radius:13px;padding:1.3rem;transition:all .3s var(--ease);position:relative;overflow:hidden;display:flex;gap:1rem;align-items:start}
+.edu-card::after{content:'';position:absolute;top:0;right:0;width:90px;height:90px;border-radius:50%;background:var(--ac2);filter:blur(40px);pointer-events:none}
+.edu-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.edu-logo{width:44px;height:44px;border-radius:10px;background:var(--bg4);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.edu-logo svg{width:26px;height:26px}
+.edu-info{flex:1}
+.edu-deg{font-family:var(--fd);font-weight:700;font-size:1rem;margin-bottom:.15rem}
+.edu-sch{color:var(--ac);font-weight:500;font-size:.85rem;margin-bottom:.08rem}
+.edu-yr{font-family:var(--fm);font-size:.68rem;color:var(--t3);margin-bottom:.6rem}
+.edu-gpa{font-family:var(--fm);font-size:.75rem;color:var(--t2);background:rgba(255,255,255,.03);padding:.25rem .55rem;border-radius:5px;display:inline-block;margin-bottom:.6rem}
+.edu-tags{display:flex;flex-wrap:wrap;gap:.3rem}
+.edu-ct{font-family:var(--fm);font-size:.62rem;padding:.2rem .48rem;border:1px solid var(--border);border-radius:100px;color:var(--t3)}
+@media(max-width:640px){.edu-grid{grid-template-columns:1fr}}
+
+/*═══════════════════════════════════════════════════════
+  PROJECTS — robust SVG visuals per card
+═══════════════════════════════════════════════════════*/
+.prj-s{padding:clamp(2.5rem,5vw,4.5rem) 0}
+.prj-hd{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.8rem;flex-wrap:wrap;gap:.8rem}
+.pf{display:flex;gap:.35rem;flex-wrap:wrap}
+.pf-btn{font-family:var(--fm);font-size:.66rem;letter-spacing:.04em;padding:.38rem .85rem;background:transparent;border:1px solid var(--border);border-radius:100px;color:var(--t3);cursor:pointer;transition:all .25s}
+.pf-btn:hover,.pf-btn.on{border-color:var(--ac);color:var(--ac);background:var(--ac2)}
+.prj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:1.1rem}
+.prj-card{background:var(--bg3);border:1px solid var(--border);border-radius:13px;overflow:hidden;cursor:pointer;transition:all .35s var(--ease);display:flex;flex-direction:column}
+.prj-card:hover{border-color:var(--border2);transform:translateY(-5px);box-shadow:0 14px 44px rgba(0,0,0,.3)}
+/* SVG illustration area */
+.prj-vis{height:180px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.prj-vis .prj-bg{position:absolute;inset:0}
+.prj-vis svg{position:relative;z-index:1;width:100px;height:100px;opacity:.85}
+.prj-body{padding:1.3rem;flex:1;display:flex;flex-direction:column}
+.prj-type{font-family:var(--fm);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:.35rem}
+.prj-title{font-family:var(--fd);font-weight:700;font-size:1rem;margin-bottom:.4rem;line-height:1.3}
+.prj-desc{font-size:.8rem;color:var(--t2);line-height:1.55;flex:1}
+.prj-hint{font-family:var(--fm);font-size:.62rem;color:var(--t3);margin-top:.65rem;display:flex;align-items:center;gap:.25rem;transition:color .2s}
+.prj-card:hover .prj-hint{color:var(--ac)}
+@media(max-width:768px){.prj-grid{grid-template-columns:1fr}}
+
+/*═══════════════════════════════════════════════════════
+  MORE — Research (with logos), Testimonials
+═══════════════════════════════════════════════════════*/
+.res-s{padding:clamp(2.5rem,5vw,4.5rem) 0}
+.res-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1.3rem}
+.res-card{background:var(--bg3);border:1px solid var(--border);border-radius:13px;padding:1.3rem;transition:all .3s var(--ease);display:flex;gap:1rem;align-items:start}
+.res-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.res-logo{width:40px;height:40px;border-radius:8px;background:var(--bg4);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.res-logo svg{width:24px;height:24px}
+.res-info{flex:1}
+.res-badge{font-family:var(--fm);font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;padding:.22rem .55rem;border-radius:100px;display:inline-block;margin-bottom:.6rem}
+.b-pub{background:var(--gr2);color:var(--gr);border:1px solid rgba(94,194,105,.22)}
+.b-on{background:var(--hi2);color:var(--hi);border:1px solid rgba(107,163,247,.22)}
+.res-title{font-family:var(--fd);font-weight:600;font-size:.92rem;margin-bottom:.5rem;line-height:1.4}
+.res-desc{font-size:.8rem;color:var(--t2);line-height:1.55}
+.res-link{display:inline-flex;align-items:center;gap:.3rem;margin-top:.6rem;font-family:var(--fm);font-size:.7rem;color:var(--ac);transition:gap .3s}
+.res-link:hover{gap:.5rem}
+@media(max-width:640px){.res-grid{grid-template-columns:1fr}.res-card{flex-direction:column}}
+
+/* Testimonials */
+.test-s{padding:clamp(2.5rem,5vw,4.5rem) 0;background:var(--bg2);border-top:1px solid var(--border)}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1rem;margin-top:1.3rem}
+.test-card{background:var(--bg3);border:1px solid var(--border);border-radius:13px;padding:1.3rem;transition:all .3s var(--ease);position:relative}
+.test-card:hover{border-color:var(--border2);transform:translateY(-3px)}
+.test-card::before{content:'"';font-family:var(--fd);font-size:3.2rem;font-weight:800;color:var(--ac);opacity:.12;position:absolute;top:.4rem;left:1.1rem;line-height:1}
+.tq{font-size:.82rem;color:var(--t2);line-height:1.7;margin-bottom:1.1rem;font-style:italic;position:relative;z-index:1}
+.ta{font-family:var(--fd);font-weight:600;font-size:.82rem}
+.tr{font-size:.7rem;color:var(--t3);margin-top:.08rem}
+
+/*═══════════════════════════════════════════════════════
+  CONTACT — own dedicated panel
+═══════════════════════════════════════════════════════*/
+.contact-s{min-height:calc(100vh - var(--navH));display:flex;align-items:center;position:relative;overflow:hidden;padding:clamp(3rem,6vw,5rem) 0}
+.contact-glow{position:absolute;width:500px;height:350px;background:radial-gradient(circle,var(--ac3),transparent 70%);filter:blur(140px);top:-15%;right:-8%;pointer-events:none}
+.contact-glow2{position:absolute;width:350px;height:350px;background:radial-gradient(circle,rgba(107,163,247,.08),transparent 70%);filter:blur(120px);bottom:-10%;left:-5%;pointer-events:none}
+.contact-in{position:relative;z-index:1;text-align:center;max-width:600px;margin:0 auto}
+.contact-icon{margin:0 auto 1.5rem;width:72px;height:72px;border-radius:20px;background:var(--ac2);border:1px solid var(--ac3);display:flex;align-items:center;justify-content:center}
+.contact-icon svg{width:32px;height:32px}
+.ct-title{font-family:var(--fd);font-weight:800;font-size:clamp(1.8rem,3.5vw,2.8rem);margin-bottom:.7rem}
+.ct-desc{color:var(--t2);font-size:1rem;margin-bottom:2.2rem;line-height:1.7}
+.ct-links{display:flex;justify-content:center;gap:.65rem;flex-wrap:wrap;margin-bottom:2rem}
+.ct-pill{font-family:var(--fm);font-size:.75rem;padding:.55rem 1.2rem;border:1px solid var(--border2);border-radius:100px;color:var(--t2);transition:all .25s;display:inline-flex;align-items:center;gap:.4rem}
+.ct-pill:hover{border-color:var(--ac);color:var(--ac);background:var(--ac2);transform:translateY(-2px)}
+.ct-email{font-family:var(--fm);font-size:1rem;color:var(--ac);margin-bottom:2.5rem}
+.ct-form{max-width:440px;margin:0 auto;text-align:left}
+.ct-form-row{margin-bottom:1rem}
+.ct-form-row label{display:block;font-family:var(--fm);font-size:.68rem;color:var(--t3);margin-bottom:.35rem;letter-spacing:.05em;text-transform:uppercase}
+.ct-form-row input,.ct-form-row textarea{width:100%;background:var(--bg3);border:1px solid var(--border);border-radius:10px;padding:.75rem 1rem;color:var(--t1);font-family:var(--fb);font-size:.88rem;transition:border-color .25s;outline:none;resize:vertical}
+.ct-form-row input:focus,.ct-form-row textarea:focus{border-color:var(--ac)}
+.ct-form-row textarea{min-height:100px}
+.ct-send{width:100%;font-family:var(--fm);font-size:.78rem;padding:.85rem;background:var(--ac);color:var(--bg);border:none;border-radius:100px;cursor:pointer;font-weight:600;transition:all .3s var(--spring);letter-spacing:.03em}
+.ct-send:hover{transform:translateY(-2px);box-shadow:0 8px 28px var(--ac3)}
+
+/* Footer */
+.foot{padding:1.8rem 0;border-top:1px solid var(--border)}
+.foot-in{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.7rem}
+.foot-c{font-size:.72rem;color:var(--t3)}
+.foot-l{display:flex;gap:1.1rem}
+.foot-l a{font-size:.72rem;color:var(--t3)}
+.foot-l a:hover{color:var(--ac)}
+
+/*═══════════════════════════════════════════════════════
+  CENTERED MODAL — pops up in the middle
+═══════════════════════════════════════════════════════*/
+.mo-overlay{position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.65);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;display:flex;align-items:center;justify-content:center;padding:2rem}
+.mo-overlay.open{opacity:1;visibility:visible}
+.mo-box{width:100%;max-width:620px;max-height:85vh;background:var(--bg2);border:1px solid var(--border2);border-radius:18px;overflow:hidden;transform:scale(.92) translateY(20px);opacity:0;transition:transform .4s var(--ease),opacity .35s;display:flex;flex-direction:column}
+.mo-overlay.open .mo-box{transform:scale(1) translateY(0);opacity:1}
+.mo-hd{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.5rem;background:rgba(12,12,17,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--border);flex-shrink:0;position:sticky;top:0;z-index:2}
+.mo-label{font-family:var(--fm);font-size:.66rem;color:var(--t3);letter-spacing:.1em;text-transform:uppercase}
+.mo-x{width:30px;height:30px;border-radius:7px;border:1px solid var(--border2);background:transparent;color:var(--t2);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.mo-x:hover{background:rgba(255,255,255,.06);color:var(--t1);border-color:var(--ac)}
+.mo-body{padding:1.5rem 1.5rem 2rem;overflow-y:auto;flex:1}
+.mo-type{font-family:var(--fm);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:.4rem}
+.mo-title{font-family:var(--fd);font-weight:700;font-size:1.5rem;line-height:1.2;margin-bottom:.3rem}
+.mo-sub{color:var(--ac);font-size:.88rem;font-weight:500;margin-bottom:1.1rem}
+.mo-txt{font-size:.88rem;color:var(--t2);line-height:1.7;margin-bottom:1.1rem}
+.mo-list{list-style:none;display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.3rem}
+.mo-list li{font-size:.83rem;color:var(--t2);padding-left:1rem;position:relative;line-height:1.6}
+.mo-list li::before{content:'→';position:absolute;left:0;color:var(--ac);font-size:.72rem}
+.mo-metrics{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.1rem}
+.mo-met{font-family:var(--fm);font-size:.68rem;padding:.3rem .7rem;background:var(--ac2);border-radius:5px;color:var(--ac)}
+.mo-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-bottom:1.3rem}
+.mo-tag{font-family:var(--fm);font-size:.62rem;padding:.22rem .55rem;border:1px solid var(--border);border-radius:100px;color:var(--t3)}
+.mo-link{font-family:var(--fm);font-size:.78rem;display:inline-flex;align-items:center;gap:.35rem;padding:.6rem 1.4rem;border:1px solid var(--ac);border-radius:100px;color:var(--ac);transition:all .25s}
+.mo-link:hover{background:var(--ac);color:var(--bg)}
+@media(max-width:480px){.mo-overlay{padding:.5rem}.mo-box{max-height:92vh;border-radius:14px}}
+</style>
+</head>
+<body>
+
+<!-- ═══════ NAV ═══════ -->
+<nav class="nav">
+  <div class="nav-in">
+    <!-- NEW ORIGINAL LOGO: Abstract circuit "J" node monogram -->
+    <a class="logo" onclick="go(0)">
+      <div class="logo-icon">
+        <svg viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer hexagonal frame -->
+          <path d="M17 2L30.5 9.5V24.5L17 32L3.5 24.5V9.5L17 2Z" stroke="rgba(232,164,74,0.2)" stroke-width="1.2"/>
+          <!-- Circuit traces forming abstract J -->
+          <path d="M20 8V20C20 22.2 18.2 24 16 24H13" stroke="#e8a44a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Node dots at key intersections -->
+          <circle cx="20" cy="8" r="2.2" fill="#e8a44a"/>
+          <circle cx="13" cy="24" r="2.2" fill="#e8a44a"/>
+          <circle cx="20" cy="16" r="1.5" fill="none" stroke="rgba(232,164,74,0.4)" stroke-width="1"/>
+          <!-- Small accent trace -->
+          <path d="M15 8H20" stroke="rgba(232,164,74,0.35)" stroke-width="1.2" stroke-linecap="round"/>
+          <circle cx="15" cy="8" r="1.2" fill="rgba(232,164,74,0.3)"/>
+        </svg>
+      </div>
+      <span class="logo-word"><b>jeel</b><span class="dim"> patel</span></span>
+    </a>
+    <div class="nl">
+      <button class="nl-btn on" data-p="0">Home</button>
+      <button class="nl-btn" data-p="1">Experience</button>
+      <button class="nl-btn" data-p="2">Projects</button>
+      <button class="nl-btn" data-p="3">More</button>
+      <button class="nl-cta" data-p="4">Contact</button>
+    </div>
+    <button class="ham" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mob" id="mob">
+  <button onclick="go(0);cM()">Home</button>
+  <button onclick="go(1);cM()">Experience</button>
+  <button onclick="go(2);cM()">Projects</button>
+  <button onclick="go(3);cM()">More</button>
+  <button onclick="go(4);cM()">Contact</button>
+</div>
+
+<!-- ═══════ VIEWPORT ═══════ -->
+<div class="vp">
+
+<!-- ══════ PANEL 0: HOME ══════ -->
+<div class="pn on" data-pi="0"><div class="pn-c">
+  <section class="hero">
+    <div class="hero-gl hero-gl1"></div><div class="hero-gl hero-gl2"></div>
+    <div class="ctn"><div class="hero-lay">
+      <div>
+        <div class="hero-ey rv"><span class="pd"></span><span id="tw"></span></div>
+        <h1 class="hero-nm rv d1">Jeel<br/>Patel<span class="ac">.</span></h1>
+        <p class="hero-tl rv d2">Software engineer at the intersection of <strong>ML systems</strong>, <strong>distributed computing</strong>, and <strong>high-performance infrastructure</strong>. MS Computer Engineering @ NYU.</p>
+        <div class="hero-act rv d3">
+          <button class="bp" onclick="go(2)">View Projects ↓</button>
+          <button class="bg" onclick="go(4)">Get in Touch</button>
         </div>
-
-
-            <!-- Header-->
-        <header class="py-5">
-          <div class="container px-5 pb-5">
-            <div class="row gx-5 align-items-center flex-column flex-xxl-row">
-              <!-- Left Text Section -->
-              <div class="col-xxl-5">
-                <div class="text-center text-xxl-start">
-                <div class="badge text-white mb-4 fs-5 d-flex justify-content-center justify-content-md-start align-items-center" style="position: relative; min-height: 2.5rem;">
-                  <div id="typewriter" class="text-uppercase position-relative"></div>
-                  <div id="typewriter-placeholder" class="text-uppercase" aria-hidden="true">Convert</div>
-                </div>
-
-                  <div class="fs-2 fw-light text-muted mb-2">Jeel Patel</div>
-
-                  <h1 class="display-2 fw-bolder mb-5">
-                    <span class="text-gradient d-inline">Engineer | Creator | Problem Solver</span>
-                  </h1>
-
-                  <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-4">
-<!--                    <a class="pill-glass-btn resume-light" href="resume.html">Resume</a>-->
-                    <a class="pill-glass-btn projects-light" href="projects.html">Projects</a>
-                  </div>
-                </div>
-              </div>
-
-            <!-- Right Card Section -->
-            <div class="col-12 col-xxl-7 d-flex justify-content-center justify-content-xxl-end mt-5 mt-xxl-0 order-2 order-xxl-2">
-
-              <!-- Profile Card -->
-              <div class="liquid-profile-card text-center text-xxl-start">
-                <img src="assets/prof.jpg"
-                     alt="Jeel Patel"
-                     class="liquid-profile-card__img" />
-
-                <div class="liquid-profile-card__overlay"></div>
-
-                <!-- Floating intro -->
-                <div class="liquid-profile-card__info">
-                  <h2>
-                    Jeel Patel
-                    <i class="fas fa-check-circle"></i>
-                  </h2>
-                  <p>A Software Engineer focused on solving problems.</p>
-                </div>
-
-                <!-- Glassy footer -->
-                <div class="liquid-profile-card__footer">
-                  <div class="liquid-profile-card__stats">
-                    <div class="profile-location d-flex align-items-center justify-content-center justify-content-xxl-start text-white">
-                      <i class="bi bi-geo-alt-fill me-2" aria-hidden="true"></i>
-                      <span>New York</span>
-                    </div>
-                  </div>
-                  <button class="btn btn-light liquid-profile-card__follow-btn"
-                          onclick="location.href='https://www.linkedin.com/in/jeel3105/'"
-                          id="followButton">
-                    Linkedin
-                  </button>
-                </div>
-              </div>
-
-            </div>
-
-
-                </div>
-              </div>
-        </header>
-            <!-- ROW: About Me + Tech Stack -->
-            <div class="row px-4 pb-5 align-items-stretch align-center">
-              <!-- About Me Column -->
-              <div class="col-lg-6 d-flex flex-column justify-content-between">
-                <div class="glass-card p-4 h-100">
-                  <h2 class="tech-title mb-3">About Me</h2>
-                  <p class="text-muted" style="color: #666;">
-                    My name is Jeel Patel and I am committed to crafting digital solutions.
-                  </p>
-                  <p style="color: #A6ACCD;">
-                    I’m a software developer passionate about crafting digital solutions that empower businesses to thrive online.
-                    My expertise spans design, development, and marketing, consistently driving accelerated growth and enhanced
-                    online presence for the brands I collaborate with.
-                  </p>
-                </div>
-              </div>
-
-              <!-- Skills Column -->
-            <div class="col-lg-6 d-flex flex-column justify-content-between">
-              <div class="glass-card p-4 h-100 d-flex flex-column justify-content-around">
-                <!-- Row 1 -->
-                <div class="tech-marquee mb-2">
-                  <div class="tech-track scroll-left">
-                    <span class="tech-badge glow-on-hover">Python</span>
-                    <span class="tech-badge glow-on-hover">JavaScript</span>
-                    <span class="tech-badge glow-on-hover">C++</span>
-                    <span class="tech-badge glow-on-hover">PHP</span>
-                    <span class="tech-badge glow-on-hover">R</span>
-                    <span class="tech-badge glow-on-hover">SQL</span>
-                    <span class="tech-badge glow-on-hover">PostgreSQL</span>
-                    <span class="tech-badge glow-on-hover">MongoDB</span>
-                    <span class="tech-badge glow-on-hover">SQLite</span>
-                    <span class="tech-badge glow-on-hover">Cassandra</span>
-                    <span class="tech-badge glow-on-hover">CouchDB</span>
-                    <span class="tech-badge glow-on-hover">AWS</span>
-                    <span class="tech-badge glow-on-hover">Azure</span>
-                    <span class="tech-badge glow-on-hover">Node.js</span>
-                  </div>
-                </div>
-
-                <!-- Row 2 -->
-                <div class="tech-marquee mb-2">
-                  <div class="tech-track scroll-right">
-                    <span class="tech-badge glow-on-hover">Streamlit</span>
-                    <span class="tech-badge glow-on-hover">Flask</span>
-                    <span class="tech-badge glow-on-hover">React.js</span>
-                    <span class="tech-badge glow-on-hover">Material UI</span>
-                    <span class="tech-badge glow-on-hover">HTML</span>
-                    <span class="tech-badge glow-on-hover">CSS</span>
-                    <span class="tech-badge glow-on-hover">Tailwind CSS</span>
-                    <span class="tech-badge glow-on-hover">Excel</span>
-                    <span class="tech-badge glow-on-hover">Tableau</span>
-                    <span class="tech-badge glow-on-hover">Power BI</span>
-                    <span class="tech-badge glow-on-hover">Knime</span>
-                    <span class="tech-badge glow-on-hover">Plotly</span>
-                  </div>
-                </div>
-
-                <!-- Row 3 -->
-                <div class="tech-marquee">
-                  <div class="tech-track scroll-left">
-                    <span class="tech-badge glow-on-hover">Pyplot</span>
-                    <span class="tech-badge glow-on-hover">Matplotlib</span>
-                    <span class="tech-badge glow-on-hover">Seaborn</span>
-                    <span class="tech-badge glow-on-hover">Pandas</span>
-                    <span class="tech-badge glow-on-hover">NumPy</span>
-                    <span class="tech-badge glow-on-hover">Scikit-learn</span>
-                    <span class="tech-badge glow-on-hover">TensorFlow</span>
-                    <span class="tech-badge glow-on-hover">XGBoost</span>
-                    <span class="tech-badge glow-on-hover">Tesseract OCR</span>
-                    <span class="tech-badge glow-on-hover">OpenCV</span>
-                    <span class="tech-badge glow-on-hover">NLTK</span>
-                    <span class="tech-badge glow-on-hover">SpaCy</span>
-                    <span class="tech-badge glow-on-hover">Apache Spark</span>
-                    <span class="tech-badge glow-on-hover">Airflow</span>
-                    <span class="tech-badge glow-on-hover">jQuery</span>
-                    <span class="tech-badge glow-on-hover">Bootstrap</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            </div>
-
-            <!-- CONNECT + GUESTBOOK ROW -->
-            <!-- CONNECT SECTION BELOW SKILLS -->
-            <div class="row px-4 pb-5 justify-content-center text-center">
-              <div class="col-lg-12">
-                <h2 style="
-                  font-family: 'Courier New', monospace;
-                  font-size: 2rem;
-                  font-weight: bold;
-                  background: linear-gradient(90deg, #ff79c6, #bd93f9, #ffb86c);
-                  -webkit-background-clip: text;
-                  -webkit-text-fill-color: transparent;
-                  margin-bottom: 2rem;
-                ">
-                  Let’s connect and make something amazing!
-                </h2>
-
-                <!-- Guestbook Card Centered -->
-                <a href="contact.html" style="text-decoration: none;">
-                  <div class="glass-card p-4 text-center mx-auto" style="
-                    background-color: rgba(40, 42, 54, 0.85);
-                    border: 1px solid #6272a4;
-                    border-radius: 1rem;
-                    box-shadow: 0 4px 15px rgba(255, 121, 198, 0.2);
-                    transition: transform 0.3s ease;
-                    max-width: 350px;
-                  "
-                  onmouseover="this.style.transform='scale(1.03)'"
-                  onmouseout="this.style.transform='scale(1)'">
-                    <p style="color: #6272a4; letter-spacing: 1px; font-size: 0.85rem;">Contact Me!</p>
-                    <h4 style="color: #f8f8f2;">Let me know you were here</h4>
-                  </div>
-                </a>
-              </div>
-            </div>
-
-        </main>
-
-        <!-- Footer-->
-        <footer class="footer-dracula py-5 mt-auto">
-          <div class="container px-5">
-            <div class="row gy-4">
-
-              <!-- Bio / Identity -->
-              <div class="col-12 col-lg-4">
-                <h5 class="fw-bold mb-2 text-white">Jex2L</h5>
-                <p class="small text-muted mb-2">
-                  Hey, I’m Jeel — ML enthusiast, code crafter, and relentless problem-solver. Glad you stopped by!
-                </p>
-                <p class="small text-muted mb-0">© Jeel Patel</p>
-              </div>
-
-              <!-- Navigation Links -->
-              <div class="col-12 col-lg-8">
-                <div class="row text-center text-lg-start">
-                  <!-- General -->
-                  <div class="col-4">
-                    <h6 class="fw-bold text-white mb-3">General</h6>
-                    <ul class="list-unstyled">
-                      <li><a href="resume.html" class="footer-link">Resume</a></li>
-                      <li><a href="projects.html" class="footer-link">Projects</a></li>
-                        <li><a href="contact.html" class="footer-link">Contact</a></li>
-                    </ul>
-                  </div>
-
-                  <!-- Specifics -->
-                  <div class="col-4">
-                    <h6 class="fw-bold text-white mb-3">Specifics</h6>
-                    <ul class="list-unstyled">
-                      <li><a href="bucket-list.html" class="footer-link">Bucket List</a></li>
-                      <li><a href="toolbox.html" class="footer-link">Toolbox</a></li>
-                    </ul>
-                  </div>
-
-                  <!-- More + Icons -->
-                  <div class="col-4">
-                    <div class="d-flex justify-content-center justify-content-lg-start gap-3 mt-3">
-                      <a href="https://linkedin.com/in/jeel3105" class="footer-link" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-linkedin"></i>
-                      </a>
-                      <a href="https://github.com/Jex2l" class="footer-link" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-github"></i>
-                      </a>
-                      <a href="https://x.com/pateljeel3527" class="footer-link" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-twitter"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
+        <div class="hero-stats rv d4">
+          <div><div class="hs-v">3+</div><div class="hs-l">Years Exp.</div></div>
+          <div><div class="hs-v">100K+</div><div class="hs-l">Users Impacted</div></div>
+          <div><div class="hs-v">1</div><div class="hs-l">IEEE Paper</div></div>
+          <div><div class="hs-v">3.67</div><div class="hs-l">GPA @ NYU</div></div>
+        </div>
+      </div>
+      <div class="rv d2">
+        <div class="pc">
+          <img class="pc-img" src="assets/prof.jpg" alt="Jeel Patel" onerror="this.style.background='linear-gradient(135deg,#1a1a2e,#16213e,#0f3460)';this.style.height='260px'"/>
+          <div class="pc-body">
+            <div class="pc-name">Jeel Patel</div>
+            <div class="pc-role">Software Engineer · NYU '26</div>
+            <div class="pc-tags"><span class="pc-tag">📍 New York</span><span class="pc-tag">🎓 MS CompE</span><span class="pc-tag">💼 Open to Work</span></div>
           </div>
-        </footer>
+        </div>
+      </div>
+    </div></div>
+  </section>
 
+  <section class="about-s"><div class="ctn"><div class="about-g">
+    <div>
+      <div class="sl rv">About</div>
+      <h2 class="st rv">Engineer, creator,<br/>problem solver.</h2>
+      <p class="rv">I build systems that scale — from deploying APIs on AWS serving <span class="ahl">100K+ users</span> to engineering fault-tolerant pipelines processing terabytes of HPC telemetry data.</p>
+      <p class="rv">Currently conducting <span class="ahl">HPC research</span> at NYU analyzing GPU power consumption on MIT Supercloud, developing synthetic data pipelines using CTGAN and diffusion models.</p>
+      <p class="rv">Previously built multithreaded C++ services delivering <span class="ahl">20% crash reduction</span>, <span class="ahl">35% latency improvements</span>, and <span class="ahl">50% order volume increases</span>.</p>
+    </div>
+    <div class="about-cards">
+      <div class="ac-card rv"><div class="ac-icon">⚡</div><div class="ac-title">ML Systems</div><div class="ac-desc">Production ML pipelines from training to deployment.</div></div>
+      <div class="ac-card rv d1"><div class="ac-icon">🔧</div><div class="ac-title">Backend & APIs</div><div class="ac-desc">Python, C++, Node.js, Spring Boot.</div></div>
+      <div class="ac-card rv d2"><div class="ac-icon">☁️</div><div class="ac-title">Cloud & Data</div><div class="ac-desc">AWS, Azure, Spark, Airflow at scale.</div></div>
+      <div class="ac-card rv d3"><div class="ac-icon">🔬</div><div class="ac-title">Research</div><div class="ac-desc">IEEE published. Active HPC research.</div></div>
+    </div>
+  </div></div></section>
+
+  <section class="sk-s"><div class="ctn">
+    <div class="sl rv">Tech Stack</div><h2 class="st rv">Tools I work with.</h2>
+    <div class="sk-grid">
+      <div class="sk-grp rv"><div class="sk-gt"><span class="sk-dot" style="background:var(--ac)"></span>Languages</div><div class="sk-tags"><span class="sk-tag">Python</span><span class="sk-tag">Java</span><span class="sk-tag">JavaScript</span><span class="sk-tag">C++</span><span class="sk-tag">SQL</span><span class="sk-tag">R</span></div></div>
+      <div class="sk-grp rv d1"><div class="sk-gt"><span class="sk-dot" style="background:var(--hi)"></span>Frameworks</div><div class="sk-tags"><span class="sk-tag">Flask</span><span class="sk-tag">React</span><span class="sk-tag">Node.js</span><span class="sk-tag">Spring Boot</span><span class="sk-tag">TensorFlow</span><span class="sk-tag">Scikit-learn</span><span class="sk-tag">XGBoost</span><span class="sk-tag">BERT</span></div></div>
+      <div class="sk-grp rv d2"><div class="sk-gt"><span class="sk-dot" style="background:var(--gr)"></span>Data & Cloud</div><div class="sk-tags"><span class="sk-tag">AWS</span><span class="sk-tag">Azure</span><span class="sk-tag">MongoDB</span><span class="sk-tag">Spark</span><span class="sk-tag">Airflow</span><span class="sk-tag">Docker</span><span class="sk-tag">Pandas</span><span class="sk-tag">NumPy</span></div></div>
+      <div class="sk-grp rv d3"><div class="sk-gt"><span class="sk-dot" style="background:#f0b860"></span>Visualization</div><div class="sk-tags"><span class="sk-tag">Power BI</span><span class="sk-tag">Tableau</span><span class="sk-tag">Seaborn</span><span class="sk-tag">Plotly</span><span class="sk-tag">Matplotlib</span><span class="sk-tag">Git</span></div></div>
+    </div>
+  </div></section>
+</div></div>
+
+<!-- ══════ PANEL 1: EXPERIENCE + EDUCATION ══════ -->
+<div class="pn" data-pi="1"><div class="pn-c">
+  <section class="exp-s"><div class="ctn">
+    <div class="sl rv">Experience</div><h2 class="st rv">Where I've built things.</h2>
+    <div class="exp-list">
+      <!-- NYU Research -->
+      <div class="exp-card rv" onclick="openExp(0)">
+        <div class="exp-logo"><svg viewBox="0 0 28 28" fill="none"><rect x="2" y="6" width="24" height="16" rx="3" stroke="#b8a9ea" stroke-width="1.5"/><text x="14" y="18" text-anchor="middle" font-family="serif" font-weight="700" font-size="11" fill="#b8a9ea">NYU</text></svg></div>
+        <div class="exp-date">Sep 2025 —<br/>Present</div>
+        <div><div class="exp-role">Graduate Research Assistant</div><div class="exp-co">New York University — Prof. Lin</div><div class="exp-prev">GPU power consumption analysis on MIT Supercloud. Synthetic data pipelines with CTGAN & diffusion models.</div><div class="exp-hint">⊞ Click for details</div></div>
+      </div>
+      <!-- NorthStar -->
+      <div class="exp-card rv d1" onclick="openExp(1)">
+        <div class="exp-logo"><svg viewBox="0 0 28 28" fill="none"><polygon points="14,3 17,11 25,11 18.5,16 21,24 14,19.5 7,24 9.5,16 3,11 11,11" stroke="#e8a44a" stroke-width="1.3" fill="none"/><circle cx="14" cy="13" r="2" fill="#e8a44a"/></svg></div>
+        <div class="exp-date">Sep 2025 —<br/>Dec 2025</div>
+        <div><div class="exp-role">Software Engineering Intern</div><div class="exp-co">The NorthStar Group — New York, NY</div><div class="exp-prev">Backend services on AWS for media platforms. ML automation reducing ops by 30%. Serving 100K+ users.</div><div class="exp-hint">⊞ Click for details</div></div>
+      </div>
+      <!-- 5POINT -->
+      <div class="exp-card rv d2" onclick="openExp(2)">
+        <div class="exp-logo"><svg viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="10" stroke="#5b9cf5" stroke-width="1.3"/><text x="14" y="18" text-anchor="middle" font-family="monospace" font-weight="700" font-size="10" fill="#5b9cf5">5P</text></svg></div>
+        <div class="exp-date">Jan 2024 —<br/>May 2024</div>
+        <div><div class="exp-role">Software Engineer Intern</div><div class="exp-co">5POINT Solutions — Vadodara, India</div><div class="exp-prev">Predictive ML models reducing churn 18%. ETL for 10M+ records. A/B testing boosting conversions 12%.</div><div class="exp-hint">⊞ Click for details</div></div>
+      </div>
+      <!-- Worknex -->
+      <div class="exp-card rv d3" onclick="openExp(3)">
+        <div class="exp-logo"><svg viewBox="0 0 28 28" fill="none"><rect x="4" y="4" width="20" height="20" rx="5" stroke="#5ec269" stroke-width="1.3"/><text x="14" y="18" text-anchor="middle" font-family="monospace" font-weight="700" font-size="9" fill="#5ec269">WN</text></svg></div>
+        <div class="exp-date">May 2023 —<br/>Jul 2023</div>
+        <div><div class="exp-role">Data Analyst</div><div class="exp-co">Worknex — Pune, India</div><div class="exp-prev">15K+ records analyzed with Pandas & SQL. Spark + Airflow pipelines cutting processing 35%.</div><div class="exp-hint">⊞ Click for details</div></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="edu-s"><div class="ctn">
+    <div class="sl rv">Education</div><h2 class="st rv">Academic foundation.</h2>
+    <div class="edu-grid">
+      <div class="edu-card rv">
+        <div class="edu-logo"><svg viewBox="0 0 26 26" fill="none"><rect x="1" y="4" width="24" height="18" rx="3" stroke="#b8a9ea" stroke-width="1.3"/><text x="13" y="16" text-anchor="middle" font-family="serif" font-weight="700" font-size="9" fill="#b8a9ea">NYU</text></svg></div>
+        <div class="edu-info"><div class="edu-deg">M.S. Computer Engineering</div><div class="edu-sch">New York University</div><div class="edu-yr">2024 — 2026</div><div class="edu-gpa">GPA: 3.667 / 4.0</div><div class="edu-tags"><span class="edu-ct">Machine Learning</span><span class="edu-ct">Deep Learning</span><span class="edu-ct">MLOps</span><span class="edu-ct">Big Data</span></div></div>
+      </div>
+      <div class="edu-card rv d1">
+        <div class="edu-logo"><svg viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="11" stroke="#e8a44a" stroke-width="1.3"/><text x="13" y="11" text-anchor="middle" font-family="serif" font-weight="700" font-size="6" fill="#e8a44a">SIU</text><text x="13" y="18" text-anchor="middle" font-family="sans-serif" font-size="5" fill="rgba(232,164,74,.6)">PUNE</text></svg></div>
+        <div class="edu-info"><div class="edu-deg">B.Tech Information Technology</div><div class="edu-sch">Symbiosis International University</div><div class="edu-yr">2020 — 2024</div><div class="edu-gpa">GPA: 7.521 / 10.0</div><div class="edu-tags"><span class="edu-ct">Data Structures</span><span class="edu-ct">OS</span><span class="edu-ct">Networks</span><span class="edu-ct">Distributed Sys</span></div></div>
+      </div>
+    </div>
+  </div></section>
+</div></div>
+
+<!-- ══════ PANEL 2: PROJECTS ══════ -->
+<div class="pn" data-pi="2"><div class="pn-c">
+  <section class="prj-s"><div class="ctn">
+    <div class="prj-hd">
+      <div><div class="sl rv">Projects</div><h2 class="st rv">Selected work.</h2></div>
+      <div class="pf rv"><button class="pf-btn on" data-f="all">All</button><button class="pf-btn" data-f="ml">ML</button><button class="pf-btn" data-f="web">Web</button><button class="pf-btn" data-f="nlp">NLP</button></div>
+    </div>
+    <div class="prj-grid">
+
+      <!-- NYC Taxi -->
+      <div class="prj-card rv" data-tags="ml data" onclick="openPrj(0)">
+        <div class="prj-vis"><div class="prj-bg" style="background:linear-gradient(135deg,#0a1628,#142440,#1c3a5e)"></div>
+          <svg viewBox="0 0 100 100" fill="none"><rect x="15" y="55" width="70" height="28" rx="6" stroke="#e8a44a" stroke-width="2"/><rect x="22" y="48" width="56" height="12" rx="3" stroke="#e8a44a" stroke-width="1.5" opacity=".6"/><circle cx="30" cy="88" r="5" stroke="#e8a44a" stroke-width="1.5"/><circle cx="70" cy="88" r="5" stroke="#e8a44a" stroke-width="1.5"/><rect x="40" y="38" width="20" height="14" rx="2" stroke="rgba(232,164,74,.4)" stroke-width="1"/><line x1="50" y1="20" x2="50" y2="38" stroke="rgba(232,164,74,.3)" stroke-width="1" stroke-dasharray="3 2"/><circle cx="50" cy="16" r="4" stroke="rgba(107,163,247,.5)" stroke-width="1.2"/><path d="M10 70 Q30 50 50 65 Q70 80 90 60" stroke="rgba(107,163,247,.35)" stroke-width="1.5" fill="none"/></svg>
+        </div>
+        <div class="prj-body"><div class="prj-type">Machine Learning</div><div class="prj-title">NYC Taxi Demand Prediction</div><div class="prj-desc">Real-time demand forecasting with ensemble models, weather & event data. R²=0.89.</div><div class="prj-hint">⊞ Click for details</div></div>
+      </div>
+
+      <!-- NYC Crime -->
+      <div class="prj-card rv d1" data-tags="ml data" onclick="openPrj(1)">
+        <div class="prj-vis"><div class="prj-bg" style="background:linear-gradient(135deg,#1a0e28,#2d1845,#401e60)"></div>
+          <svg viewBox="0 0 100 100" fill="none"><rect x="12" y="12" width="76" height="76" rx="8" stroke="rgba(107,163,247,.3)" stroke-width="1.5"/><circle cx="35" cy="40" r="6" fill="rgba(232,164,74,.2)" stroke="#e8a44a" stroke-width="1.2"/><circle cx="62" cy="55" r="8" fill="rgba(232,164,74,.15)" stroke="#e8a44a" stroke-width="1.2"/><circle cx="50" cy="30" r="4" fill="rgba(107,163,247,.15)" stroke="#6ba3f7" stroke-width="1"/><circle cx="72" cy="35" r="3" fill="rgba(94,194,105,.15)" stroke="#5ec269" stroke-width="1"/><line x1="20" y1="75" x2="80" y2="75" stroke="rgba(255,255,255,.08)" stroke-width="1"/><line x1="20" y1="65" x2="80" y2="65" stroke="rgba(255,255,255,.05)" stroke-width="1"/><path d="M20 80 L35 65 L50 72 L65 58 L80 62" stroke="#e8a44a" stroke-width="1.5" fill="none" opacity=".6"/></svg>
+        </div>
+        <div class="prj-body"><div class="prj-type">Machine Learning</div><div class="prj-title">NYC Crime Prediction</div><div class="prj-desc">Predictive analytics with geospatial modeling for crime hotspot identification. 85% accuracy.</div><div class="prj-hint">⊞ Click for details</div></div>
+      </div>
+
+      <!-- Doc Classification -->
+      <div class="prj-card rv d2" data-tags="ml nlp" onclick="openPrj(2)">
+        <div class="prj-vis"><div class="prj-bg" style="background:linear-gradient(135deg,#0e1e28,#153040,#1a4050)"></div>
+          <svg viewBox="0 0 100 100" fill="none"><rect x="18" y="15" width="40" height="52" rx="4" stroke="#e8a44a" stroke-width="1.5"/><line x1="25" y1="28" x2="50" y2="28" stroke="rgba(232,164,74,.4)" stroke-width="1.5"/><line x1="25" y1="35" x2="45" y2="35" stroke="rgba(232,164,74,.3)" stroke-width="1"/><line x1="25" y1="41" x2="50" y2="41" stroke="rgba(232,164,74,.3)" stroke-width="1"/><line x1="25" y1="47" x2="40" y2="47" stroke="rgba(232,164,74,.2)" stroke-width="1"/><rect x="45" y="30" width="38" height="52" rx="4" stroke="#6ba3f7" stroke-width="1.5"/><line x1="52" y1="43" x2="76" y2="43" stroke="rgba(107,163,247,.4)" stroke-width="1.5"/><line x1="52" y1="50" x2="72" y2="50" stroke="rgba(107,163,247,.3)" stroke-width="1"/><line x1="52" y1="56" x2="76" y2="56" stroke="rgba(107,163,247,.3)" stroke-width="1"/><path d="M38 55 L55 40" stroke="rgba(94,194,105,.5)" stroke-width="1.5" stroke-dasharray="3 2"/><circle cx="38" cy="58" r="3" stroke="#5ec269" stroke-width="1.2"/><circle cx="55" cy="37" r="3" stroke="#5ec269" stroke-width="1.2"/></svg>
+        </div>
+        <div class="prj-body"><div class="prj-type">NLP / Deep Learning</div><div class="prj-title">Document Classification & Extraction</div><div class="prj-desc">BERT-powered pipeline for 50K+ documents. 92% accuracy, 75% manual reduction.</div><div class="prj-hint">⊞ Click for details</div></div>
+      </div>
+
+      <!-- SYMBI-MART -->
+      <div class="prj-card rv d3" data-tags="web ml" onclick="openPrj(3)">
+        <div class="prj-vis"><div class="prj-bg" style="background:linear-gradient(135deg,#1a120a,#2e1e10,#45301a)"></div>
+          <svg viewBox="0 0 100 100" fill="none"><rect x="20" y="22" width="60" height="56" rx="6" stroke="#e8a44a" stroke-width="1.5"/><line x1="20" y1="38" x2="80" y2="38" stroke="rgba(232,164,74,.3)" stroke-width="1"/><rect x="28" y="44" width="18" height="14" rx="3" stroke="rgba(232,164,74,.5)" stroke-width="1.2"/><rect x="52" y="44" width="18" height="14" rx="3" stroke="rgba(107,163,247,.5)" stroke-width="1.2"/><rect x="28" y="62" width="42" height="10" rx="3" stroke="rgba(94,194,105,.4)" stroke-width="1.2"/><circle cx="50" cy="30" r="4" stroke="rgba(232,164,74,.4)" stroke-width="1.2"/><path d="M46 30 L54 30" stroke="rgba(232,164,74,.4)" stroke-width="1.5"/></svg>
+        </div>
+        <div class="prj-body"><div class="prj-type">Full Stack / AI</div><div class="prj-title">SYMBI-MART E-commerce</div><div class="prj-desc">Campus marketplace with RoBERTa search and neural collaborative filtering. 50% order boost.</div><div class="prj-hint">⊞ Click for details</div></div>
+      </div>
+
+      <!-- Netflix -->
+      <div class="prj-card rv d4" data-tags="web" onclick="openPrj(4)">
+        <div class="prj-vis"><div class="prj-bg" style="background:linear-gradient(135deg,#120808,#2a0e0e,#401515)"></div>
+          <svg viewBox="0 0 100 100" fill="none"><rect x="15" y="20" width="70" height="45" rx="5" stroke="#e8a44a" stroke-width="1.5"/><rect x="20" y="25" width="22" height="15" rx="3" fill="rgba(232,164,74,.12)" stroke="rgba(232,164,74,.3)" stroke-width="1"/><rect x="46" y="25" width="22" height="15" rx="3" fill="rgba(107,163,247,.08)" stroke="rgba(107,163,247,.3)" stroke-width="1"/><rect x="20" y="44" width="48" height="4" rx="2" fill="rgba(255,255,255,.06)"/><rect x="20" y="51" width="35" height="4" rx="2" fill="rgba(255,255,255,.04)"/><polygon points="28,28 28,37 36,32.5" fill="rgba(232,164,74,.5)"/><line x1="15" y1="70" x2="85" y2="70" stroke="rgba(255,255,255,.06)" stroke-width="1"/><circle cx="30" cy="74" r="3" stroke="rgba(232,164,74,.3)" stroke-width="1"/><circle cx="50" cy="74" r="3" stroke="rgba(232,164,74,.3)" stroke-width="1"/><circle cx="70" cy="74" r="3" stroke="rgba(232,164,74,.3)" stroke-width="1"/></svg>
+        </div>
+        <div class="prj-body"><div class="prj-type">Full Stack</div><div class="prj-title">Netflix-Inspired Streaming</div><div class="prj-desc">React + Firebase SPA with TMDB API for dynamic content and authentication.</div><div class="prj-hint">⊞ Click for details</div></div>
+      </div>
+
+      <!-- OCR -->
+      <div class="prj-card rv d5" data-tags="ml nlp" onclick="openPrj(5)">
+        <div class="prj-vis"><div class="prj-bg" style="background:linear-gradient(135deg,#081520,#102538,#183850)"></div>
+          <svg viewBox="0 0 100 100" fill="none"><rect x="22" y="20" width="56" height="60" rx="5" stroke="rgba(232,164,74,.4)" stroke-width="1.5"/><rect x="30" y="32" width="40" height="8" rx="2" stroke="#e8a44a" stroke-width="1.2"/><line x1="30" y1="46" x2="60" y2="46" stroke="rgba(232,164,74,.25)" stroke-width="1"/><line x1="30" y1="52" x2="55" y2="52" stroke="rgba(232,164,74,.2)" stroke-width="1"/><line x1="30" y1="58" x2="62" y2="58" stroke="rgba(232,164,74,.25)" stroke-width="1"/><line x1="30" y1="64" x2="48" y2="64" stroke="rgba(232,164,74,.2)" stroke-width="1"/><circle cx="72" cy="28" r="10" stroke="#6ba3f7" stroke-width="1.5"/><circle cx="72" cy="28" r="4" fill="rgba(107,163,247,.15)"/><line x1="79" y1="35" x2="86" y2="42" stroke="#6ba3f7" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+        <div class="prj-body"><div class="prj-type">Computer Vision</div><div class="prj-title">Intelligent OCR System</div><div class="prj-desc">Tesseract + OpenCV pipeline with Flask UI for document digitization.</div><div class="prj-hint">⊞ Click for details</div></div>
+      </div>
+
+    </div>
+  </div></section>
+</div></div>
+
+<!-- ══════ PANEL 3: MORE ══════ -->
+<div class="pn" data-pi="3"><div class="pn-c">
+  <section class="res-s"><div class="ctn">
+    <div class="sl rv">Research</div><h2 class="st rv">Academic contributions.</h2>
+    <div class="res-grid">
+      <div class="res-card rv">
+        <div class="res-logo"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="#5ec269" stroke-width="1.3"/><text x="12" y="15" text-anchor="middle" font-family="serif" font-weight="700" font-size="8" fill="#5ec269">IEEE</text></svg></div>
+        <div class="res-info"><span class="res-badge b-pub">Published — IEEE</span><div class="res-title">Quantitative Analysis of ML & DL Models in Dysrhythmia Classification</div><div class="res-desc">ML/DL approaches for cardiac rhythm disorder classification, published in IEEE Xplore.</div><a href="https://ieeexplore.ieee.org/document/10526152" class="res-link" target="_blank" rel="noopener">View on IEEE →</a></div>
+      </div>
+      <div class="res-card rv d1">
+        <div class="res-logo"><svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="4" stroke="#6ba3f7" stroke-width="1.3"/><text x="12" y="15" text-anchor="middle" font-family="serif" font-weight="700" font-size="7" fill="#6ba3f7">NYU</text></svg></div>
+        <div class="res-info"><span class="res-badge b-on">Ongoing — NYU</span><div class="res-title">Power Consumption Analysis for AI-based Data Centers</div><div class="res-desc">GPU/CPU power patterns for large-scale AI workloads. Energy-aware scheduling on MIT Supercloud.</div></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="test-s"><div class="ctn">
+    <div class="sl rv">Testimonials</div><h2 class="st rv">What people say.</h2>
+    <div class="test-grid">
+      <div class="test-card rv"><p class="tq">Jeel was among the most effective, proactive, and collaborative students in my Big Data class. His problem-solving mindset made him a joy to teach.</p><div class="ta">Prof. Amit Patel</div><div class="tr">Adjunct Professor, NYU Tandon</div></div>
+      <div class="test-card rv d1"><p class="tq">Jeel's ability to solve problems and persistence in learning set him apart. His curiosity and communication were exceptional.</p><div class="ta">Dr. Deepali Vora</div><div class="tr">HOD, Symbiosis Institute of Technology</div></div>
+      <div class="test-card rv d2"><p class="tq">Jeel's curiosity, intellect, and collaborative mindset made him stand out. His passion for learning is truly inspiring.</p><div class="ta">Dr. Harshal Aravind Patil</div><div class="tr">Assoc. Professor, Symbiosis IT</div></div>
+    </div>
+  </div></section>
+</div></div>
+
+<!-- ══════ PANEL 4: CONTACT (own page) ══════ -->
+<div class="pn" data-pi="4"><div class="pn-c">
+  <section class="contact-s">
+    <div class="contact-glow"></div><div class="contact-glow2"></div>
+    <div class="ctn"><div class="contact-in">
+      <div class="contact-icon rv">
+        <svg viewBox="0 0 32 32" fill="none"><rect x="3" y="7" width="26" height="18" rx="4" stroke="#e8a44a" stroke-width="1.8"/><path d="M3 11L16 19L29 11" stroke="#e8a44a" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <div class="sl rv" style="justify-content:center">Contact</div>
+      <h2 class="ct-title rv">Let's build something together.</h2>
+      <p class="ct-desc rv">I'm always open to discussing new projects, interesting ideas, or opportunities to create something meaningful.</p>
+      <div class="ct-links rv">
+        <a href="mailto:pateljeel3105@gmail.com" class="ct-pill">✉ Email</a>
+        <a href="https://linkedin.com/in/jeel3105" target="_blank" rel="noopener" class="ct-pill">in LinkedIn</a>
+        <a href="https://github.com/Jex2l" target="_blank" rel="noopener" class="ct-pill">⌥ GitHub</a>
+        <a href="https://x.com/pateljeel3527" target="_blank" rel="noopener" class="ct-pill">𝕏 Twitter</a>
+      </div>
+      <div class="ct-email rv">pateljeel3105@gmail.com</div>
+      <div class="ct-form rv d2">
+        <div class="ct-form-row"><label>Name</label><input type="text" placeholder="Your name" /></div>
+        <div class="ct-form-row"><label>Email</label><input type="email" placeholder="you@example.com" /></div>
+        <div class="ct-form-row"><label>Message</label><textarea placeholder="Tell me about your project or idea..."></textarea></div>
+        <button class="ct-send" type="button" onclick="alert('Thanks for reaching out! This is a demo form — please use the email link above.')">Send Message →</button>
+      </div>
+    </div></div>
+  </section>
+  <footer class="foot"><div class="ctn foot-in"><div class="foot-c">© 2026 Jeel Patel</div><div class="foot-l"><a href="https://linkedin.com/in/jeel3105" target="_blank">LinkedIn</a><a href="https://github.com/Jex2l" target="_blank">GitHub</a><a href="https://x.com/pateljeel3527" target="_blank">Twitter</a></div></div></footer>
+</div></div>
+
+</div><!-- end .vp -->
+
+<!-- ═══════ CENTERED MODAL ═══════ -->
+<div class="mo-overlay" id="moOv" onclick="clMo()">
+  <div class="mo-box" onclick="event.stopPropagation()">
+    <div class="mo-hd"><span class="mo-label" id="moLbl">Details</span><button class="mo-x" onclick="clMo()">✕</button></div>
+    <div class="mo-body" id="moBd"></div>
+  </div>
+</div>
 
 <script>
-  const phrases = ["Code", "Convert", "Create"];
-  let currentPhrase = 0;
-  let currentChar = 0;
-  let isDeleting = false;
-  const typewriterDiv = document.getElementById("typewriter");
+/* ═══ Typewriter ═══ */
+(()=>{const e=document.getElementById('tw'),p=['Software Engineer','ML Systems Builder','Open to Opportunities','NYU Grad Student'];let i=0,c=0,d=!1;function t(){const f=p[i];e.textContent=d?f.substring(0,c--):f.substring(0,c++);let w=d?35:65;if(!d&&c>f.length){w=2200;d=!0}else if(d&&c<0){d=!1;i=(i+1)%p.length;w=400}setTimeout(t,w)}t()})();
 
-  function type() {
-    const fullText = phrases[currentPhrase];
-    const displayedText = isDeleting
-      ? fullText.substring(0, currentChar--)
-      : fullText.substring(0, currentChar++);
+/* ═══ Panel Navigation ═══ */
+let cur=0,busy=!1;
+const pns=document.querySelectorAll('.pn'),nbs=document.querySelectorAll('.nl-btn');
 
-    typewriterDiv.textContent = displayedText;
+function go(t){
+  if(t===cur||busy)return;busy=!0;
+  const cE=pns[cur],tE=pns[t],fwd=t>cur;
+  tE.querySelectorAll('.rv').forEach(r=>r.classList.remove('visible'));
+  tE.classList.remove('on','ex-l','ex-r');
+  tE.style.transform=fwd?'translateX(100%)':'translateX(-30%)';tE.style.opacity='0';
+  void tE.offsetWidth;
+  tE.style.transform='';tE.style.opacity='';
+  cE.classList.remove('on');cE.classList.add(fwd?'ex-l':'ex-r');
+  tE.classList.add('on');tE.scrollTop=0;
+  nbs.forEach(b=>b.classList.remove('on'));
+  nbs.forEach(b=>{if(parseInt(b.dataset.p)===t)b.classList.add('on')});
+  setTimeout(()=>{cE.classList.remove('ex-l','ex-r');cur=t;busy=!1;
+    setTimeout(()=>tE.querySelectorAll('.rv').forEach(r=>r.classList.add('visible')),50);
+  },520);
+}
+nbs.forEach(b=>b.addEventListener('click',()=>go(parseInt(b.dataset.p))));
+document.querySelector('.nl-cta')?.addEventListener('click',()=>go(4));
+setTimeout(()=>pns[0].querySelectorAll('.rv').forEach(r=>r.classList.add('visible')),100);
 
-    let delay = isDeleting ? 50 : 100;
+/* Mobile */
+const ham=document.getElementById('ham'),mob=document.getElementById('mob');
+ham.addEventListener('click',()=>{ham.classList.toggle('on');mob.classList.toggle('open')});
+function cM(){ham.classList.remove('on');mob.classList.remove('open')}
 
-    if (!isDeleting && currentChar === fullText.length + 1) {
-      delay = 1000;
-      isDeleting = true;
-    } else if (isDeleting && currentChar < 0) {
-      isDeleting = false;
-      currentPhrase = (currentPhrase + 1) % phrases.length;
-      delay = 300;
-    }
+/* Filters */
+document.querySelectorAll('.pf-btn').forEach(b=>{b.addEventListener('click',()=>{
+  document.querySelectorAll('.pf-btn').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  const f=b.dataset.f;document.querySelectorAll('.prj-card').forEach(c=>{c.style.display=(f==='all'||((c.dataset.tags||'').includes(f)))?'':'none'});
+})});
 
-    setTimeout(type, delay);
-  }
+/* ═══ Modal ═══ */
+function opMo(){document.getElementById('moOv').classList.add('open')}
+function clMo(){document.getElementById('moOv').classList.remove('open')}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')clMo()});
 
-  type();
+/* Project data */
+const PD=[
+  {type:'Machine Learning',title:'NYC Taxi Demand Prediction',sub:'Ensemble forecasting with weather & event data',desc:'Built a real-time demand forecasting system for NYC taxis using ensemble ML models. Integrated weather data, event calendars, and historical trip records for zone-level demand predictions.',bullets:['R² of 0.89 with 40% error reduction vs baseline','Engineered 50+ spatiotemporal features from raw trips','Interactive Streamlit dashboard for predictions','Processed 200M+ trip records from NYC TLC dataset'],metrics:['R² = 0.89','40% Error ↓','200M+ records'],tags:['Python','XGBoost','Streamlit','Pandas','Scikit-learn'],link:'https://github.com/Jex2l/NYC-Taxi-Demand-Prediction'},
+  {type:'Machine Learning',title:'NYC Crime Prediction',sub:'Geospatial crime analytics platform',desc:'Predictive crime analytics platform leveraging historical NYPD data with geospatial modeling for hotspot identification and resource allocation.',bullets:['85% accuracy on crime category prediction','Geospatial visualization of hotspots across boroughs','Feature engineering from temporal, spatial, demographic data','Random forest, gradient boosting, and neural network models'],metrics:['85% Accuracy'],tags:['Python','Scikit-learn','GeoPandas','Folium','XGBoost'],link:'https://github.com/Jex2l/NYC-Crime-Prediction'},
+  {type:'NLP / Deep Learning',title:'Document Classification & Extraction',sub:'BERT-powered document processing pipeline',desc:'Automated NLP pipeline that classifies, sorts, and extracts key information from large document corpora using fine-tuned BERT models.',bullets:['92% classification accuracy on 50,000+ documents','40% improvement in precision over baseline','60% faster document retrieval','75% reduction in manual processing overhead'],metrics:['92% Accuracy','75% Manual ↓','60% Faster'],tags:['Python','TensorFlow','BERT','Hugging Face','NLP'],link:'https://github.com/Jex2l/doc-classification-extraction'},
+  {type:'Full Stack / AI',title:'SYMBI-MART E-commerce',sub:'AI-powered campus marketplace',desc:'Unified on-campus stores with AI recommendations. RoBERTa for semantic search and Neural Collaborative Filtering for personalized suggestions.',bullets:['50% order volume boost in first semester','RoBERTa NLP for smarter search and listings','Neural Collaborative Filtering for recommendations','Inventory optimization across 3 campus stores'],metrics:['50% Orders ↑','3 Stores'],tags:['Node.js','RoBERTa','NCF','JavaScript','MongoDB'],link:'https://github.com/Jex2l/Symbi-mart'},
+  {type:'Full Stack',title:'Netflix-Inspired Streaming',sub:'React + Firebase SPA with TMDB',desc:'Full-stack single-page app recreating the Netflix experience with responsive design, real-time auth, and dynamic content.',bullets:['React.js + Firebase for real-time full-stack SPA','Persistent auth with real-time content updates','TMDB API for dynamic movie recommendations','Responsive with smooth transitions and lazy loading'],metrics:[],tags:['React.js','Firebase','TMDB API','Node.js','CSS'],link:'https://github.com/Jex2l/NETFLIX-CLONE'},
+  {type:'Computer Vision',title:'Intelligent OCR System',sub:'Tesseract + OpenCV document digitization',desc:'Advanced OCR pipeline using Tesseract with OpenCV preprocessing for high-accuracy document digitization.',bullets:['Custom preprocessing: denoising, deskewing, thresholding','Multi-language support via Tesseract config','Flask web interface for drag-and-drop processing','Batch processing for large document sets'],metrics:[],tags:['Python','Tesseract OCR','OpenCV','Flask','PIL'],link:'https://github.com/Jex2l'}
+];
+
+function openPrj(i){
+  const p=PD[i];document.getElementById('moLbl').textContent='Project Details';
+  let h=`<div class="mo-type">${p.type}</div><div class="mo-title">${p.title}</div><div class="mo-sub">${p.sub}</div><div class="mo-txt">${p.desc}</div><ul class="mo-list">${p.bullets.map(b=>`<li>${b}</li>`).join('')}</ul>`;
+  if(p.metrics.length)h+=`<div class="mo-metrics">${p.metrics.map(m=>`<span class="mo-met">${m}</span>`).join('')}</div>`;
+  h+=`<div class="mo-tags">${p.tags.map(t=>`<span class="mo-tag">${t}</span>`).join('')}</div><a href="${p.link}" target="_blank" rel="noopener" class="mo-link">View on GitHub →</a>`;
+  document.getElementById('moBd').innerHTML=h;opMo();
+}
+
+/* Experience data */
+const ED=[
+  {role:'Graduate Research Assistant',co:'New York University — Prof. Lin',date:'Sep 2025 — Present',loc:'New York, NY',desc:'HPC research on GPU power consumption analysis and synthetic data generation for AI workload scheduling.',bullets:['Analyzing GPU power consumption on MIT Supercloud with 2.5TB HPC telemetry','Building fault-tolerant pipelines for large-scale GPU scheduling data','Developing synthetic data pipelines using CTGAN and diffusion models','Designing energy-aware scheduling to reduce peak power draw'],tags:['Python','CTGAN','Diffusion Models','HPC','MIT Supercloud']},
+  {role:'Software Engineering Intern',co:'The NorthStar Group',date:'Sep 2025 — Dec 2025',loc:'New York, NY',desc:'Backend services and cloud automation for multi-platform media company, improving reliability for 100K+ monthly users.',bullets:['Backend services across media platforms, APIs on AWS (EC2/S3)','Cloud automation + ML features reducing manual ops by 30%','Optimized server logic, stabilized production for 100K+ users with 20% fewer crashes'],tags:['AWS','EC2','S3','Python','ML','REST APIs']},
+  {role:'Software Engineer Intern',co:'5POINT Solutions Pvt. Ltd.',date:'Jan 2024 — May 2024',loc:'Vadodara, India',desc:'ML-powered analytics and data infrastructure for customer retention and marketing efficiency.',bullets:['Predictive models with Scikit-learn, XGBoost reducing churn 18%','ETL pipelines for 10M+ records, SQL optimization improving dashboard load 60%','A/B testing boosting marketing conversions by 12%'],tags:['Python','Scikit-learn','XGBoost','SQL','ETL','Spring Boot']},
+  {role:'Data Analyst',co:'Worknex Pvt. Ltd.',date:'May 2023 — Jul 2023',loc:'Pune, India',desc:'End-to-end data analysis workflows and ML models for engagement targeting and operational efficiency.',bullets:['Analyzed 15K+ records with Pandas, NumPy, SQL; visualized in Tableau','Spark + Airflow pipelines reducing processing time 35%','ML models with Scikit-learn, TensorFlow improving targeting 22%'],tags:['Pandas','SQL','Tableau','Spark','Airflow','TensorFlow']}
+];
+
+function openExp(i){
+  const e=ED[i];document.getElementById('moLbl').textContent='Experience Details';
+  let h=`<div class="mo-type">${e.date} · ${e.loc}</div><div class="mo-title">${e.role}</div><div class="mo-sub">${e.co}</div><div class="mo-txt">${e.desc}</div><ul class="mo-list">${e.bullets.map(b=>`<li>${b}</li>`).join('')}</ul><div class="mo-tags">${e.tags.map(t=>`<span class="mo-tag">${t}</span>`).join('')}</div>`;
+  document.getElementById('moBd').innerHTML=h;opMo();
+}
+
+/* Keyboard nav */
+document.addEventListener('keydown',e=>{
+  if(document.getElementById('moOv').classList.contains('open'))return;
+  if(e.key==='ArrowRight'&&cur<pns.length-1)go(cur+1);
+  if(e.key==='ArrowLeft'&&cur>0)go(cur-1);
+});
 </script>
-
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
-    <!-- Bootstrap Bundle with Popper -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-    </body>
+</body>
 </html>
